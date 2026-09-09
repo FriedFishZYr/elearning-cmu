@@ -3,84 +3,410 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A question-based practice module for reading, checking, and working with AI-written Python code.">
+  <meta name="description" content="An offline pilot study with a pre-test, a learning module, and a post-test on working with AI-written Python code.">
   <meta name="color-scheme" content="light">
-  <title>Programming with AI · Practice</title>
+  <title>Programming with AI · Pilot study</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%239d2434'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='monospace' font-size='35' fill='white'%3E%26lt;%26gt;%3C/text%3E%3C/svg%3E">
-  <style>:root{--ink:#202936;--muted:#536172;--paper:#fff;--canvas:#f3f5f7;--line:#d8dfe5;--red:#9d2434;--red-dark:#7e1c29;--red-light:#f8e9ec;--code:#17212e;--green:#166448;--green-light:#eef8f2;--amber:#845019;--amber-light:#fff6e8;--radius:12px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--canvas);font-size:16px;line-height:1.6}
-*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button,a,input,select,summary{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:default}a{color:var(--red)}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #2767b0;outline-offset:4px}button{touch-action:manipulation}h1,h2,h3,p{margin-top:0}h1,h2,h3{line-height:1.22}h1{font-size:clamp(1.8rem,3.2vw,2.7rem);letter-spacing:-.04em;font-weight:680;margin-bottom:16px}h2{font-size:1.4rem;letter-spacing:-.025em}h3{font-size:1.08rem;margin-bottom:8px}p{margin-bottom:16px}small{font-size:.875rem}code{font-family:"Cascadia Code","SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.92em}p code,li code{background:#e8edf1;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}button svg{width:18px;height:18px}svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.skip-link{position:fixed;left:16px;top:-80px;background:white;padding:12px;z-index:10}.skip-link:focus{top:12px}.topbar{height:80px;border-top:4px solid var(--red);border-bottom:1px solid var(--line);background:white;display:flex;align-items:center;justify-content:space-between;padding:0 36px;gap:16px}.brand{display:flex;align-items:center;gap:14px}.brand-mark{display:grid;place-items:center;background:var(--red);color:white;border-radius:6px;width:38px;height:38px;font-family:Consolas,monospace;font-weight:700;font-size:19px}.brand strong{font-size:1rem;font-weight:650}.brand small{display:block;color:var(--muted);font-size:.8125rem;line-height:1.35}.top-meta{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:.875rem}.top-meta .dot{width:5px;height:5px;border-radius:50%;background:#9aa7b2}.layout{display:grid;grid-template-columns:236px minmax(0,1fr);max-width:1600px;margin:auto;min-height:calc(100vh - 80px)}.sidebar{border-right:1px solid var(--line);padding:36px 22px;display:flex;flex-direction:column;gap:30px}.side-label,.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:750;color:var(--muted)}.side-label{margin:0 12px 18px}.stage-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}.stage-button{border:0;background:none;padding:12px 10px;width:100%;display:flex;align-items:center;gap:12px;border-radius:8px;text-align:left;font-size:.875rem;font-weight:550;color:var(--muted)}.stage-button:hover:not(:disabled){background:#e8edf1}.stage-button:disabled{color:#65717d}.stage-button.current{background:var(--red-light);color:var(--red);font-weight:700}.stage-number{border:1px solid #9da9b5;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;font-size:.75rem;flex-shrink:0}.current .stage-number{border-color:var(--red);background:var(--red);color:white}.done .stage-number{border-color:var(--green);color:var(--green);background:var(--green-light)}.stage-number svg{width:15px;height:15px}.side-note{font-size:.875rem;color:var(--muted);border-top:1px solid var(--line);padding:22px 12px 0;margin-top:6px}.side-note strong{display:block;color:var(--ink);margin-bottom:6px;font-weight:600}.main{min-width:0;padding:32px 44px 36px}.progress-line{display:flex;align-items:center;gap:16px;font-size:.8125rem;color:var(--muted);margin-bottom:32px}.progress-line progress{appearance:none;border:0;width:150px;max-width:35%;height:5px;border-radius:4px;background:#dce2e8}.progress-line progress::-webkit-progress-bar{background:#dce2e8;border-radius:4px}.progress-line progress::-webkit-progress-value{background:var(--red);border-radius:4px}.progress-line progress::-moz-progress-bar{background:var(--red);border-radius:4px}.activity-header{max-width:900px;margin-bottom:28px}.eyebrow{color:var(--red);margin-bottom:12px}.lead{color:var(--muted);max-width:760px;font-size:1rem;margin-bottom:0}.activity-grid{display:grid;grid-template-columns:minmax(300px,.95fr) minmax(350px,1.05fr);gap:28px;align-items:start}.activity-grid.single-column{display:block;max-width:900px}.evidence{min-width:0;position:sticky;top:24px}.spec{background:white;border:1px solid var(--line);border-left:3px solid var(--red);padding:20px 22px;border-radius:0 8px 8px 0;margin-bottom:18px}.spec .label{font-size:.75rem;color:var(--muted);font-weight:750;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}.spec p{margin:0;font-size:.9375rem;line-height:1.7}.code-card{border-radius:var(--radius);background:var(--code);color:#edf2f6;overflow:hidden;margin-bottom:18px;border:1px solid #1c2a3b}.code-label{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;font-size:.75rem;color:#b7c4d3;border-bottom:1px solid #34404e;letter-spacing:.02em}.code-label .language{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:#aebdce}.code-card pre{margin:0;padding:20px 20px 22px;overflow-x:auto;tab-size:4;line-height:1.8;font-size:.875rem}.code-card code{font-size:inherit;white-space:pre}.token-keyword{color:#d4aff7}.token-string{color:#b5dfbd}.token-number{color:#f2cb8c}.token-comment{color:#a7b7c9}.reminder{font-size:.875rem;color:var(--muted);padding:0 2px}.reminder summary{cursor:pointer;font-weight:600;padding:6px 0}.reminder p{margin:8px 0 0;line-height:1.65}.answer-panel{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:26px;min-width:0}.question-kind{color:var(--muted);font-size:.8125rem;margin:0 0 12px}.question-title{font-size:1.22rem;font-weight:650;line-height:1.45;letter-spacing:-.02em;margin:0 0 12px;overflow-wrap:anywhere}.instruction{font-size:.875rem;color:var(--muted);margin-bottom:20px}.choices{border:0;padding:0;margin:20px 0 0;min-width:0}.choice{display:flex;align-items:flex-start;gap:12px;padding:14px 15px;border:1px solid var(--line);border-radius:8px;margin-bottom:10px;cursor:pointer;line-height:1.55;font-size:.9375rem;transition:border-color .12s,background .12s;overflow-wrap:anywhere}.choice:hover{background:#f7f8fa;border-color:#a6b0bc}.choice.selected{border-color:var(--red);background:#fbf2f4;box-shadow:inset 0 0 0 1px var(--red)}.choice input{appearance:none;flex:0 0 18px;width:18px;height:18px;border:1.5px solid #8693a1;border-radius:50%;margin:3px 0 0;position:relative;background:white;opacity:1}.choice input[type=checkbox]{border-radius:4px}.choice input:checked{background:var(--red);border-color:var(--red);box-shadow:inset 0 0 0 4px white}.choice input[type=checkbox]:checked{box-shadow:none}.choice input[type=checkbox]:checked:after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid white;border-width:0 2px 2px 0;transform:rotate(45deg)}.choice.good{border-color:#4d9b77;background:var(--green-light);box-shadow:none}.choice.missed{border-color:#b4833f;background:var(--amber-light);box-shadow:none}.choices:disabled .choice{cursor:default}.choices:disabled .choice:hover{background:inherit}.choices:disabled .choice.good:hover{background:var(--green-light)}.choices:disabled .choice.missed:hover{background:var(--amber-light)}.choice-body{flex:1;min-width:0}.choice-status{display:block;font-size:.8125rem;font-weight:650;margin-top:6px;color:var(--green)}.choice.missed .choice-status{color:var(--amber)}.action-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid transparent;border-radius:7px;padding:12px 18px;font-size:.9375rem;font-weight:650;line-height:1.4;text-decoration:none;min-height:46px}.btn.primary{background:var(--red);color:white}.btn.primary:hover{background:var(--red-dark)}.btn.secondary{background:white;color:var(--ink);border-color:#b7c2cd}.btn.secondary:hover{background:#f1f4f6}.btn.quiet{color:var(--muted);background:transparent;padding-left:0;padding-right:0}.btn.quiet:hover{color:var(--ink)}.btn:disabled{opacity:.45}.error{font-size:.875rem;color:#9d2434;font-weight:600;margin:12px 0 0}.feedback{margin-top:24px;padding-top:24px;border-top:1px solid var(--line);scroll-margin-top:24px}.feedback:focus,.main h1:focus{outline:none}.feedback-label{display:flex;align-items:center;gap:8px;font-size:.875rem;font-weight:700;color:var(--green);margin-bottom:12px}.feedback-label svg{width:19px;height:19px}.feedback-label.revisit{color:var(--amber)}.feedback h3{font-size:1.05rem;line-height:1.5}.feedback p{font-size:.9375rem;line-height:1.75;color:#3d4c5e}.feedback .selected-explanation{background:#f3f5f7;padding:14px 16px;border-radius:6px}.extra-feedback{font-size:.875rem;color:var(--muted);margin:16px 0}.extra-feedback summary{cursor:pointer;color:var(--ink);padding:8px 0;font-weight:600}.extra-feedback ul{padding-left:20px}.extra-feedback li{margin:12px 0}.extra-feedback li strong{display:block;color:var(--ink);font-weight:600}.worked-steps{list-style:none;padding:0;margin:20px 0}.worked-steps li{border-left:2px solid var(--line);padding:0 0 18px 16px;font-size:.9375rem}.worked-steps strong{display:block;margin-bottom:5px;color:var(--ink)}.recorded{border:1px solid var(--line);border-radius:8px;padding:16px;margin:18px 0;background:#f8fafb}.recorded h4{font-size:.875rem;margin:0 0 6px}.recorded .caption{font-size:.8125rem;color:var(--muted);margin-bottom:14px}.test-row{font-size:.875rem;border-top:1px solid var(--line);padding:12px 0}.test-row:last-child{padding-bottom:0}.test-row code{display:block;overflow-wrap:anywhere;white-space:pre-wrap;font-size:.8125rem;line-height:1.65}.test-result{display:block;font-weight:600;margin-top:6px;color:var(--green)}.test-result.fail{color:var(--amber)}.sort-list{display:flex;flex-direction:column;gap:10px;margin-top:24px}.sort-row{display:grid;grid-template-columns:minmax(0,1fr) 225px;gap:16px;border:1px solid var(--line);border-radius:8px;padding:16px;align-items:center}.sort-row label{font-size:.9375rem;line-height:1.6}.fragment-number{color:var(--muted);font-size:.8125rem;margin-right:7px}.sort-row select{width:100%;border:1px solid #9aa7b3;border-radius:6px;padding:10px;background:white;color:var(--ink);font-size:.875rem;min-height:44px}.sort-row select:disabled{opacity:1;color:var(--ink);background:#f4f6f8}.sort-result{grid-column:1 / -1;font-size:.875rem;line-height:1.6;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}.sort-result strong{color:var(--green);display:block}.sort-row.missed .sort-result strong{color:var(--amber)}.sort-row.good{border-left:3px solid var(--green)}.sort-row.missed{border-left:3px solid #b4833f}.assembled{padding:18px;border-left:3px solid var(--red);background:#f8f3f4;margin:18px 0;font-size:.9375rem;line-height:1.8}.intro{max-width:980px}.intro-meta{font-size:.875rem;color:var(--muted);display:flex;gap:18px;margin:0 0 22px}.intro h1{font-size:clamp(2.2rem,4vw,3.35rem);max-width:700px}.intro .lead{max-width:700px;font-size:1.0625rem;line-height:1.75}.intro-content{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;margin-top:32px}.rules{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:6px 26px}.rule{display:flex;gap:20px;padding:23px 0;border-bottom:1px solid var(--line)}.rule:last-child{border:0}.rule-index{font-family:Consolas,monospace;color:var(--red);font-size:1.15rem;padding-top:1px}.rule h2{font-size:1.05rem;margin:0 0 6px;letter-spacing:0}.rule p{font-size:.9375rem;color:var(--muted);margin:0;line-height:1.65}.intro-aside{padding:24px 4px}.intro-aside h2{font-size:1.05rem;margin-bottom:16px}.intro-aside ul{padding-left:20px;color:var(--muted);font-size:.9375rem;margin-bottom:22px}.intro-aside li{padding-left:4px;margin-bottom:12px}.intro-note{border-top:1px solid var(--line);padding-top:18px;font-size:.875rem;color:var(--muted)}.intro-actions{display:flex;gap:20px;align-items:center;margin-top:26px;flex-wrap:wrap}.intro-actions small{color:var(--muted)}.footer{margin-top:34px;display:flex;justify-content:space-between;gap:14px;color:var(--muted);font-size:.75rem;border-top:1px solid var(--line);padding-top:18px}.storage-warning{padding:12px 16px;background:var(--amber-light);color:var(--amber);font-size:.875rem;border-radius:8px;margin-bottom:20px}.closing{max-width:950px}.closing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:28px 0}.score-card{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:28px}.score-value{font-size:3.25rem;font-weight:680;letter-spacing:-.07em;color:var(--red);line-height:1.2;margin-bottom:12px}.score-value span{font-size:1.4rem;color:var(--muted);letter-spacing:0;font-weight:450}.score-card p{font-size:.9375rem;color:var(--muted);margin:0}.closing-rules{margin:0;padding-left:20px;color:var(--muted);font-size:.9375rem}.closing-rules li{margin:0 0 12px}.closing-rules strong{color:var(--ink)}.review-list{list-style:none;padding:0;margin:20px 0}.review-item{display:flex;align-items:center;gap:14px;width:100%;text-align:left;border:0;border-top:1px solid var(--line);padding:16px 4px;background:transparent;color:var(--ink);font-size:.9375rem}.review-item:hover{background:#e9edf1}.review-icon{width:26px;height:26px;background:var(--green-light);color:var(--green);border-radius:50%;display:grid;place-items:center;flex-shrink:0}.review-icon svg{width:16px;height:16px}.review-icon.revisit{background:var(--amber-light);color:var(--amber)}.review-item .review-text{flex:1}.review-item small{display:block;color:var(--muted);font-size:.8125rem}.review-item .arrow{color:var(--muted)}.download-actions{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 12px}.session-tools{border-top:1px solid var(--line);margin-top:32px;padding-top:20px}.session-tools p{font-size:.875rem;color:var(--muted);margin-bottom:12px}.new-session{font-size:.875rem;text-decoration:underline;text-underline-offset:4px;background:none;border:0;padding:8px 0;color:var(--muted)}.noscript{max-width:650px;padding:40px;margin:auto}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(min-width:1500px){.main{padding:38px 54px}.activity-grid{gap:34px}}
-@media(max-width:1180px){.layout{grid-template-columns:205px minmax(0,1fr)}.main{padding:28px}.sidebar{padding:30px 14px}.activity-grid{grid-template-columns:1fr}.evidence{position:static}.code-card pre{font-size:.9375rem}.answer-panel{padding:24px}.intro-content{grid-template-columns:1fr}.intro-aside{padding:0 6px}.intro-aside ul{margin-bottom:18px}}
-@media(max-width:760px){.topbar{height:72px;padding:0 20px}.top-meta{font-size:.75rem}.top-meta .dot,.top-meta .course{display:none}.layout{display:block}.sidebar{border:0;padding:18px 20px 0;gap:0}.side-label,.side-note{display:none}.stage-list{flex-direction:row;gap:6px}.stage-list li{flex:1;min-width:0}.stage-button{justify-content:center;padding:8px 0}.stage-button .stage-name{display:none}.stage-number{width:29px;height:29px}.main{padding:22px 20px 28px}.progress-line{margin-bottom:25px}.activity-header{margin-bottom:22px}h1{font-size:2rem}.answer-panel{padding:20px}.activity-grid{gap:6px}.sort-row{grid-template-columns:1fr;gap:12px}.sort-row select{width:100%}.closing-grid{grid-template-columns:1fr}.intro h1{font-size:2.5rem}.intro-content{margin-top:24px;gap:22px}.rules{padding:4px 20px}.rule{padding:20px 0;gap:16px}.intro-actions{gap:12px}.intro-actions small{width:100%}.code-card pre{padding:18px 16px;font-size:.875rem}.footer{flex-wrap:wrap}.choice{padding:13px 12px}.score-value{font-size:2.8rem}.action-row{gap:10px}.action-row .btn{padding:11px 14px}.download-actions .btn{width:100%}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-@media(forced-colors:active){.choice input,.choice input:checked{appearance:auto;background:Canvas;box-shadow:none;border-color:ButtonText}.choice input[type=checkbox]:checked:after{content:none}.choice.selected{outline:2px solid Highlight;box-shadow:none}.choice.good,.choice.missed{border-style:double}.btn.primary{border-color:ButtonText}.stage-button.current{outline:2px solid Highlight}.code-card{border-color:CanvasText}}
-@media print{.sidebar,.topbar,.action-row,.download-actions,.session-tools,.footer,.skip-link{display:none}.layout{display:block}.main{padding:0}.code-card{break-inside:avoid}.activity-grid{display:block}.evidence{position:static}.answer-panel{border:0}.code-card pre{white-space:pre-wrap}.choice,.sort-row{break-inside:avoid}}
+  <style>/* Shared pilot questionnaire and learning-module presentation. */
+:root {
+  --ink: #202936;
+  --muted: #536172;
+  --paper: #fff;
+  --canvas: #f3f5f7;
+  --line: #dce1e6;
+  --red: #9d2434;
+  --red-dark: #86202e;
+  --red-light: #f9f0f2;
+  --code: #17212e;
+  --green: #166448;
+  --green-light: #eef8f2;
+  --amber: #845019;
+  --amber-light: #fff6e8;
+  /* Compact text scale with a 16px floor; larger browser preferences still apply. */
+  --text-body: 1rem;
+  --text-support: 1rem;
+  --text-small: 1rem;
+  --text-meta: 1rem;
+  --text-question: 1.125rem;
+  --text-title: 1.75rem;
+  --text-title-mobile: 1.5rem;
+  color-scheme: light;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+  font-size: max(100%, 16px);
+  line-height: 1.65;
+}
 
-/* A compact reading layout and feedback tied to the code. */
-.topbar { height:72px; }
-.layout { min-height:calc(100vh - 72px); }
-.main { padding:26px 34px 32px; }
-.progress-line { margin-bottom:22px; }
-.activity-header { margin-bottom:22px; }
-.activity-header h1 { font-size:clamp(1.8rem,2.6vw,2.3rem); margin-bottom:12px; }
-.activity-grid { gap:24px; }
-.code-card pre { padding:16px 0; font-size:.9375rem; }
-.code-line { position:relative; display:inline-block; min-width:100%; padding:0 16px 0 42px; vertical-align:top; }
-.code-line-number { position:absolute; left:0; width:28px; color:#a7b7c9; text-align:right; user-select:none; }
-.code-line-number::before { content:attr(data-line); }
-.code-line.focus-line { background:#2c3c4d; box-shadow:inset 3px 0 #a4c7e5; }
-.choice.selected:not(.good):not(.missed) { border-color:#335d86; background:#eef3f9; box-shadow:inset 0 0 0 1px #335d86; }
-.choice input:checked { background:#335d86; border-color:#335d86; }
-.choice.good input:checked { background:var(--green); border-color:var(--green); }
-.choice.missed input:checked { background:var(--amber); border-color:var(--amber); }
-.review-steps { display:flex; flex-wrap:wrap; gap:12px 22px; margin:18px 0 0; padding:0; list-style:none; font-size:.875rem; color:var(--muted); }
-.review-steps li { display:flex; align-items:center; gap:7px; }
-.review-steps li > span { display:grid; place-items:center; width:22px; height:22px; border:1px solid currentColor; border-radius:50%; font-size:.75rem; }
-.review-steps .current { color:var(--red); font-weight:700; }
-.review-steps .current > span { background:var(--red); color:white; border-color:var(--red); }
-.review-steps .done { color:var(--ink); }
-.feedback-comparison { display:grid; grid-template-columns:1fr 1fr; gap:16px; background:#f0f4f8; border-radius:6px; padding:14px 16px; margin:16px 0; }
-.feedback-comparison span { display:block; font-size:.875rem; color:var(--muted); margin-bottom:4px; }
-.feedback-comparison code { font-size:1rem; white-space:pre-wrap; overflow-wrap:anywhere; }
-.feedback .line-reference { padding-left:12px; border-left:3px solid #668caa; }
-.closing-lessons { margin:28px 0; }
-.closing .score-summary { color:var(--muted); font-size:.9375rem; margin:20px 0 0; }
-.score-summary strong { color:var(--ink); }
-@media(max-width:1280px) {
-  .layout { display:block; }
-  .sidebar { border-right:0; border-bottom:1px solid var(--line); padding:12px 28px; }
-  .side-label,.side-note { display:none; }
-  .stage-list { flex-direction:row; gap:6px; }
-  .stage-list li { flex:1; min-width:0; }
-  .stage-button { justify-content:center; gap:8px; padding:8px 6px; }
-  .activity-grid { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
-  .evidence { position:sticky; top:20px; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+button, input, select, textarea { font: inherit; }
+button, a, input, select, textarea, summary { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; touch-action: manipulation; }
+button:disabled { cursor: default; }
+a { color: var(--red); text-underline-offset: 3px; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, summary:focus-visible, pre:focus-visible {
+  outline: 3px solid #2767b0;
+  outline-offset: 3px;
 }
-@media(max-width:880px) {
-  .activity-grid { grid-template-columns:1fr; }
-  .evidence { position:static; }
-  .main { padding:24px; }
+h1, h2, h3, h4, p { margin-top: 0; }
+h1 {
+  font-family: inherit;
+  font-size: var(--text-title);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -.01em;
+  color: var(--code);
+  margin-bottom: 12px;
 }
-@media(max-width:760px) {
-  .sidebar { padding:10px 16px; }
-  .main { padding:22px 20px 28px; }
-  .activity-grid { gap:6px; }
-  .review-steps { gap:10px 14px; }
+h2, h3 { font-size: var(--text-question); font-weight: 550; line-height: 1.55; margin-bottom: 12px; }
+h4 { font-size: var(--text-support); font-weight: 600; margin-bottom: 6px; }
+p { margin-bottom: 16px; }
+small { font-size: var(--text-small); }
+code {
+  font-family: Consolas, "Cascadia Code", "SFMono-Regular", "Liberation Mono", monospace;
+  font-size: max(1rem, .92em);
 }
-@media(max-width:380px) {
-  .feedback-comparison { grid-template-columns:1fr; gap:10px; }
+p code, li code { background: #eef1f4; padding: 1px 3px; border-radius: 2px; overflow-wrap: anywhere; }
+svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
 }
-@media(forced-colors:active) {
-  .choice input,.choice input:checked,.choice.good input:checked,.choice.missed input:checked { appearance:auto; background:Canvas; border-color:ButtonText; box-shadow:none; }
-  .choice.selected:not(.good):not(.missed) { outline:2px solid Highlight; box-shadow:none; }
-  .code-line.focus-line { outline:2px solid Highlight; outline-offset:-2px; box-shadow:none; }
-  .review-steps .current > span { background:Highlight; color:HighlightText; }
+.skip-link { position: fixed; left: 16px; top: -80px; padding: 12px; background: var(--paper); z-index: 10; clip-path: inset(50%); }
+.skip-link:focus { top: 12px; clip-path: none; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
+
+/* Masthead, study stages, and the shared questionnaire sheet. */
+.topbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding: 20px 30px 18px;
+  border-top: 4px solid var(--red);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.brand { font-size: var(--text-question); font-weight: 500; letter-spacing: -.015em; }
+.brand strong { font-weight: 500; }
+.top-meta { display: flex; align-items: baseline; gap: 6px; color: var(--muted); font-size: var(--text-small); }
+.study-stages ol {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr 1fr;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 12px;
+  list-style: none;
+}
+.study-stages li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 19px 3px 15px;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.study-stages li[aria-current="step"] { color: var(--red); border-bottom-color: var(--red); font-weight: 500; }
+.study-stage-label { text-align: center; line-height: 1.45; }
+.study-stage-number { font-variant-numeric: tabular-nums; }
+.layout { display: block; width: calc(100% - 48px); max-width: 55.125rem; margin: 28px auto 34px; }
+.main { min-width: 0; max-width: 54rem; margin: 0 auto; padding: 32px 40px; border: 1px solid var(--line); background: var(--paper); }
+.progress-line { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; color: var(--red); font-size: var(--text-small); font-weight: 500; }
+.progress-line progress { appearance: none; border: 0; width: 100px; max-width: 25%; height: 3px; background: var(--line); }
+.progress-line progress::-webkit-progress-bar { background: var(--line); }
+.progress-line progress::-webkit-progress-value { background: var(--red); }
+.progress-line progress::-moz-progress-bar { background: var(--red); }
+.progress-value { color: var(--muted); font-weight: 400; }
+.activity-header { margin-bottom: 24px; }
+.eyebrow { margin-bottom: 10px; color: var(--red); font-size: var(--text-small); font-weight: 500; }
+.lead { color: var(--muted); font-size: var(--text-body); margin-bottom: 0; }
+.footer { display: flex; justify-content: center; flex-wrap: wrap; gap: 3px 20px; max-width: 54rem; margin: 15px auto 0; color: var(--muted); font-size: var(--text-meta); text-align: center; }
+.storage-warning { margin: 0 0 20px; padding: 12px 14px; border-left: 2px solid var(--amber); background: var(--amber-light); color: var(--amber); font-size: var(--text-support); }
+.noscript { max-width: 650px; padding: 40px 24px; margin: auto; }
+
+/* Native section disclosure keeps module navigation available without a rail. */
+.sidebar { max-width: 54rem; margin: 0 auto 12px; }
+.section-menu { font-size: var(--text-small); }
+.section-menu > summary { min-height: 44px; padding: 10px 4px; color: var(--muted); cursor: pointer; }
+.section-menu > summary::marker { color: var(--muted); }
+.section-current { margin-left: 14px; color: var(--ink); }
+.stage-list { list-style: none; padding: 4px 0 10px; margin: 0; border-top: 1px solid var(--line); }
+.stage-list li { min-width: 0; }
+.stage-button { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 10px 12px; border: 0; border-left: 2px solid transparent; background: transparent; color: var(--muted); text-align: left; font-size: var(--text-support); }
+.stage-button:hover:not(:disabled) { background: #e9edf1; color: var(--ink); }
+.stage-button.current { color: var(--red); border-left-color: var(--red); background: var(--red-light); font-weight: 500; }
+.stage-button:disabled { color: var(--muted); opacity: .7; }
+.stage-number { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 22px; font-size: var(--text-meta); font-variant-numeric: tabular-nums; }
+.stage-number svg { width: 15px; height: 15px; }
+.done .stage-number { color: var(--green); }
+.stage-name { min-width: 0; }
+
+/* Reading material and code remain stacked above each question. */
+.activity-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; align-items: start; }
+.activity-grid.single-column { display: block; }
+.evidence { min-width: 0; position: static; }
+.spec { margin: 0 0 18px; padding-left: 15px; border-left: 2px solid var(--line); }
+.spec .label { margin-bottom: 6px; color: var(--muted); font-size: var(--text-meta); font-weight: 500; }
+.spec p { margin: 0; }
+.code-card { margin-bottom: 22px; overflow: hidden; border: 1px solid var(--code); border-radius: 3px; background: var(--code); color: #e7edf5; }
+.code-card:last-child { margin-bottom: 0; }
+.code-label { display: flex; justify-content: space-between; gap: 14px; padding: 13px 18px 0; color: #b8c5d4; font-size: var(--text-meta); }
+.code-label .language { font-size: var(--text-meta); }
+.code-card pre { margin: 0; padding: 14px 0 18px; overflow-x: auto; tab-size: 4; line-height: 1.75; font-size: var(--text-small); }
+.code-card code { font-size: inherit; white-space: pre; }
+.code-line { position: relative; display: inline-block; min-width: 100%; padding: 0 18px 0 43px; vertical-align: top; }
+.code-line-number { position: absolute; left: 0; width: 28px; color: #a7b7c9; text-align: right; user-select: none; }
+.code-line-number::before { content: attr(data-line); }
+.code-line.focus-line { background: #2c3c4d; box-shadow: inset 3px 0 #a4c7e5; }
+.token-keyword { color: #d4aff7; }
+.token-string { color: #b5dfbd; }
+.token-number { color: #f2cb8c; }
+.token-comment { color: #a7b7c9; }
+.reminder { margin-top: 12px; color: var(--muted); font-size: var(--text-support); }
+.reminder summary { min-height: 44px; padding: 10px 0; cursor: pointer; font-weight: 500; }
+.reminder p { margin: 4px 0 0; }
+.review-steps { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 16px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: var(--text-small); }
+.review-steps li { display: flex; align-items: center; gap: 6px; }
+.review-steps li > span { font-variant-numeric: tabular-nums; }
+.review-steps .current { color: var(--red); font-weight: 600; }
+.review-steps .done { color: var(--ink); }
+
+/* Answer rows: native controls, restrained selection, explicit result labels. */
+.answer-panel { min-width: 0; padding: 0; border: 0; }
+.question-kind { color: var(--muted); font-size: var(--text-small); margin-bottom: 10px; }
+.question-title { font-size: var(--text-question); font-weight: 550; line-height: 1.55; margin-bottom: 14px; overflow-wrap: anywhere; }
+.instruction { font-size: var(--text-support); color: var(--muted); margin-bottom: 18px; }
+.choices { min-width: 0; padding: 0; margin: 0; border: 0; border-top: 1px solid var(--line); }
+.choice { display: flex; align-items: flex-start; gap: 12px; min-height: 50px; padding: 17px 10px; margin: 0; border: 0; border-bottom: 1px solid var(--line); cursor: pointer; font-size: var(--text-body); line-height: 1.65; overflow-wrap: anywhere; }
+.choice:hover { background: #f7f8fa; }
+.choice.selected:not(.good):not(.missed), .choice:has(input:checked):not(.good):not(.missed) { background: var(--red-light); }
+.choice input { appearance: auto; flex: 0 0 19px; width: 19px; height: 19px; margin: 5px 0 0; accent-color: var(--red); }
+.choice.good { background: var(--green-light); }
+.choice.missed { background: var(--amber-light); }
+.choice.good input { accent-color: var(--green); }
+.choice.missed input { accent-color: var(--amber); }
+.choices:disabled .choice { cursor: default; }
+.choices:disabled .choice:not(.selected):not(.good):not(.missed):hover { background: transparent; }
+.choice-body { flex: 1; min-width: 0; }
+.choice-status { display: block; margin-top: 6px; color: var(--green); font-size: var(--text-small); font-weight: 600; }
+.choice.missed .choice-status { color: var(--amber); }
+.action-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 26px; }
+.action-row .primary { margin-left: auto; }
+.btn { display: inline-flex; max-width: 100%; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 22px; border: 1px solid transparent; border-radius: 3px; font-size: var(--text-support); font-weight: 500; line-height: 1.5; text-decoration: none; }
+.btn.primary { background: var(--red); border-color: var(--red); color: white; }
+.btn.primary:hover:not(:disabled) { background: var(--red-dark); border-color: var(--red-dark); }
+.btn.secondary { background: white; color: var(--ink); border-color: #abb5bf; }
+.btn.secondary:hover:not(:disabled) { background: #f3f5f7; }
+.btn.quiet { background: transparent; color: var(--muted); padding-left: 0; padding-right: 0; }
+.btn.quiet:hover:not(:disabled) { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.btn:disabled { opacity: .5; }
+.error { margin: 12px 0 0; color: var(--red); font-size: var(--text-support); }
+
+/* Explanations follow the answer in the same reading column. */
+.feedback { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.feedback:focus, .main h1:focus { outline: none; }
+.feedback-label { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; color: var(--green); font-size: var(--text-support); font-weight: 600; }
+.feedback-label.revisit { color: var(--amber); }
+.feedback h3 { margin-bottom: 10px; }
+.feedback p { color: #3d4c5e; }
+.feedback .selected-explanation { padding-left: 14px; border-left: 2px solid var(--line); }
+.feedback-comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; margin: 16px 0; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.feedback-comparison span { display: block; margin-bottom: 4px; color: var(--muted); font-size: var(--text-small); }
+.feedback-comparison code { font-size: var(--text-support); white-space: pre-wrap; overflow-wrap: anywhere; }
+.feedback .line-reference { padding-left: 14px; border-left: 2px solid #668caa; }
+.extra-feedback { margin: 16px 0; color: var(--muted); font-size: var(--text-support); }
+.extra-feedback summary { min-height: 44px; padding: 10px 0; color: var(--ink); cursor: pointer; font-weight: 500; }
+.extra-feedback ul { padding-left: 20px; }
+.extra-feedback li { margin: 12px 0; }
+.extra-feedback li strong { display: block; color: var(--ink); font-weight: 550; }
+.worked-steps { list-style: none; padding: 0; margin: 20px 0; }
+.worked-steps li { padding: 0 0 18px 15px; border-left: 2px solid var(--line); font-size: var(--text-support); }
+.worked-steps strong { display: block; margin-bottom: 5px; color: var(--ink); font-weight: 550; }
+.recorded { margin: 20px 0; padding: 16px 0 0; border-top: 1px solid var(--line); }
+.recorded .caption { margin-bottom: 14px; color: var(--muted); font-size: var(--text-small); }
+.test-row { padding: 12px 0; border-top: 1px solid var(--line); font-size: var(--text-support); }
+.test-row:last-child { padding-bottom: 0; }
+.test-row code { display: block; white-space: pre-wrap; overflow-wrap: anywhere; font-size: var(--text-small); }
+.test-result { display: block; margin-top: 6px; color: var(--green); font-weight: 550; }
+.test-result.fail { color: var(--amber); }
+.assembled { margin: 18px 0; padding-left: 15px; border-left: 2px solid var(--red); font-size: var(--text-support); line-height: 1.8; }
+
+/* Sorting uses the same ruled rows as multiple-choice questions. */
+.sort-list { margin-top: 20px; border-top: 1px solid var(--line); }
+.sort-row { display: grid; grid-template-columns: minmax(0, 1fr) 15.75rem; gap: 14px; align-items: center; padding: 17px 10px; border-bottom: 1px solid var(--line); }
+.sort-row label { min-width: 0; font-size: var(--text-body); }
+.sort-row label code, .assembled code {
+  color: var(--code);
+  background: #eef1f4;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 1em;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.fragment-number { margin-right: 7px; color: var(--muted); font-size: var(--text-meta); font-variant-numeric: tabular-nums; }
+.sort-row select { width: 100%; min-height: 44px; padding: 9px; border: 1px solid #929eaa; border-radius: 3px; background: var(--paper); color: var(--ink); font-size: var(--text-support); }
+.sort-row select:disabled { color: var(--ink); background: #f3f5f7; opacity: 1; }
+.sort-result { grid-column: 1 / -1; padding-top: 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--text-support); }
+.sort-result strong { display: block; color: var(--green); font-weight: 550; }
+.sort-row.missed .sort-result strong { color: var(--amber); }
+.sort-row.good { background: var(--green-light); }
+.sort-row.missed { background: var(--amber-light); }
+
+/* Introductory and closing content share flat, ruled lists. */
+.intro-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 18px; color: var(--muted); font-size: var(--text-small); }
+.intro-content { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; margin-top: 26px; }
+.rules { padding: 0; border-top: 1px solid var(--line); }
+.rule { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.rule-index { padding-top: 2px; color: var(--red); font-size: var(--text-small); font-variant-numeric: tabular-nums; }
+.rule h2 { margin: 0 0 5px; }
+.rule p { margin: 0; color: var(--muted); font-size: var(--text-support); }
+.intro-aside h2 { margin-bottom: 12px; }
+.intro-aside ul { margin: 0 0 20px; padding-left: 20px; color: var(--muted); font-size: var(--text-support); }
+.intro-aside li { margin-bottom: 8px; padding-left: 3px; }
+.intro-note { margin-bottom: 0; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--text-support); }
+.intro-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; margin-top: 26px; }
+.intro-actions small { color: var(--muted); }
+.study-overview { padding: 0; margin: 24px 0; border-top: 1px solid var(--line); list-style: none; }
+.study-overview li { display: flex; justify-content: space-between; gap: 16px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+.study-overview strong { font-weight: 550; }
+.study-overview span { color: var(--muted); font-size: var(--text-support); }
+.closing-lessons { margin: 26px 0; }
+.closing-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; margin: 26px 0; }
+.score-card { padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.score-value { margin-bottom: 8px; color: var(--red); font-size: var(--text-title); line-height: 1.2; font-weight: 500; }
+.score-value span { color: var(--muted); font-size: var(--text-question); font-weight: 400; }
+.score-card p { margin: 0; color: var(--muted); font-size: var(--text-support); }
+.closing-rules { margin: 0; padding-left: 20px; color: var(--muted); font-size: var(--text-support); }
+.closing-rules li { margin-bottom: 12px; }
+.closing-rules strong { color: var(--ink); }
+.review-list { padding: 0; margin: 18px 0; list-style: none; border-bottom: 1px solid var(--line); }
+.review-item { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 17px 6px; border: 0; border-top: 1px solid var(--line); background: transparent; color: var(--ink); text-align: left; font-size: var(--text-body); }
+.review-item:hover { background: #f7f8fa; }
+.review-icon { display: grid; place-items: center; flex: 0 0 22px; width: 22px; height: 22px; color: var(--green); }
+.review-icon.revisit { color: var(--amber); }
+.review-item .review-text { flex: 1; min-width: 0; }
+.review-item small { display: block; color: var(--muted); font-size: var(--text-small); }
+.review-item .arrow { color: var(--muted); }
+.score-summary { margin: 20px 0 0; color: var(--muted); font-size: var(--text-support); }
+.score-summary strong { color: var(--ink); font-weight: 550; }
+.download-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0 12px; }
+.session-tools { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
+.session-tools p { color: var(--muted); font-size: var(--text-support); margin-bottom: 12px; }
+.new-session { min-height: 44px; padding: 10px 0; border: 0; background: transparent; color: var(--muted); font-size: var(--text-support); text-decoration: underline; text-underline-offset: 4px; }
+
+/* Assessment instructions, response review, and final results. */
+.assessment-instructions { margin-top: 14px; color: var(--muted); font-size: var(--text-support); }
+.assessment-instructions summary { min-height: 44px; padding: 10px 0; cursor: pointer; font-weight: 500; }
+.assessment-instructions p { margin: 4px 0 0; }
+.assessment textarea { display: block; width: 100%; min-height: 130px; margin: 10px 0; padding: 12px; border: 1px solid #929eaa; border-radius: 3px; background: var(--paper); color: var(--ink); resize: vertical; }
+.assessment-note { margin: 20px 0 0; color: var(--muted); font-size: var(--text-small); }
+.assessment-note:first-child { margin: 0 0 20px; }
+.assessment-context { white-space: pre-line; }
+.assessment-review { padding: 0; margin: 24px 0; border-top: 1px solid var(--line); list-style: none; }
+.assessment-review li { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+.assessment-review li > div { min-width: 0; }
+.assessment-review strong { font-weight: 550; }
+.assessment-review p { margin: 6px 0 0; overflow-wrap: anywhere; }
+.assessment-review .btn { flex-shrink: 0; min-width: 44px; }
+.study-scores { margin: 26px 0; border-top: 1px solid var(--line); }
+.study-scores > div { padding: 17px 0; border-bottom: 1px solid var(--line); }
+.study-scores dt { margin-bottom: 4px; font-weight: 550; }
+.study-scores dd { margin: 0; color: var(--muted); font-size: var(--text-support); }
+.test-feedback { margin: 26px 0; }
+.assessment-feedback { border-top: 1px solid var(--line); }
+.assessment-feedback:last-child { border-bottom: 1px solid var(--line); }
+.assessment-feedback summary { min-height: 44px; padding: 17px 0; cursor: pointer; font-size: var(--text-support); font-weight: 500; }
+.assessment-feedback > div { padding: 8px 0 18px; overflow-wrap: anywhere; }
+
+@media (max-width: 760px) {
+  .sort-row { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+}
+
+@media (max-width: 600px) {
+  .topbar { padding: 16px 19px 15px; }
+  .study-stages ol { padding: 0 8px; }
+  .study-stages li { gap: 5px; }
+  .layout { width: calc(100% - 24px); margin: 18px auto 24px; }
+  .main { padding: 25px 21px 23px; }
+  h1 { font-size: var(--text-title-mobile); }
+  .section-current { margin-left: 8px; }
+  .activity-header { margin-bottom: 22px; }
+  .activity-grid { gap: 20px; }
+  .code-label { padding: 12px 13px 0; }
+  .code-card pre { padding-bottom: 15px; }
+  .code-line { padding-right: 13px; padding-left: 37px; }
+  .code-line-number { width: 24px; }
+  .study-overview li { display: block; }
+  .study-overview span { display: block; margin-top: 3px; }
+  .action-row { gap: 10px; }
+  .action-row .btn { padding: 10px 16px; }
+  .action-row .btn.quiet { padding-left: 0; padding-right: 0; }
+  .assessment-review li { gap: 12px; }
+  .footer { gap: 3px 12px; }
+}
+
+@media (max-width: 380px) {
+  .main { padding-right: 17px; padding-left: 17px; }
+  .study-stages li { padding-right: 0; padding-left: 0; gap: 4px; }
+  .feedback-comparison { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .action-row .btn { padding-right: 12px; padding-left: 12px; }
+  .download-actions .btn { width: 100%; }
+}
+
+@media (pointer: coarse) {
+  .btn, .new-session, .stage-button, summary, .sort-row select { min-height: 44px; }
+  .choice { min-height: 50px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
+
+@media (forced-colors: active) {
+  .choice input { appearance: auto; }
+  .choice.selected, .choice:has(input:checked) { outline: 2px solid Highlight; outline-offset: -2px; }
+  .choice.good, .choice.missed { border-bottom-style: double; }
+  .btn.primary, .main, .code-card { border-color: CanvasText; }
+  .stage-button.current, .study-stages li[aria-current="step"] { border-color: Highlight; }
+  .code-line.focus-line { outline: 2px solid Highlight; outline-offset: -2px; box-shadow: none; }
+}
+
 @media print {
-  .sidebar { display:none; }
-  .main { padding:0; }
-  .activity-grid { display:block; }
-  .evidence { position:static; }
+  :root { background: white; color: black; }
+  .sidebar, .topbar, .study-stages, .action-row, .download-actions, .session-tools, .footer, .skip-link { display: none; }
+  .layout { width: 100%; max-width: none; margin: 0; }
+  .main { max-width: none; padding: 0; border: 0; }
+  .activity-grid { display: block; }
+  .evidence { margin-bottom: 20px; }
+  .code-card { break-inside: avoid; print-color-adjust: exact; }
+  .code-card pre { overflow-x: visible; font-size: 12pt; }
+  .choice, .sort-row, .rule, .assessment-review li { break-inside: avoid; }
+  .choice { print-color-adjust: exact; }
 }
 </style>
 </head>
@@ -191,6 +517,26 @@ const MODULE = {
         ['Write a function that counts words.', 5, 'This is a vague, redundant description. It does not clearly specify which words to count.'],
         ['Example: countStartingWith(["Apple", "banana", "avocado"], "a") returns 2.', 4, 'Gives a concrete input and expected output.'],
         ['If words is empty, return 0.', 3, 'Defines the empty-list behavior.']
+      ],
+      // Presentation only: snippets stay separate from the original response/export text.
+      fragmentCode: [
+        ['countStartingWith(words, letter)'],
+        [],
+        ['"Apple"', '"a"'],
+        ['words', 'letter'],
+        [],
+        [{ text: 'words', occurrence: 2 }, 'letter'],
+        [],
+        [],
+        ['countStartingWith(["Apple", "banana", "avocado"], "a")', '2'],
+        ['words', '0']
+      ],
+      assembledCode: [
+        'countStartingWith(words, letter)',
+        { text: 'words', occurrence: 2 }, { text: 'letter', occurrence: 2 },
+        { text: 'words', occurrence: 4 }, { text: 'letter', occurrence: 3 },
+        { text: 'words', occurrence: 5 }, '0',
+        'countStartingWith(["Apple", "banana", "avocado"], "a")', '2'
       ],
       takeaway: 'A good specification connects inputs, outputs, constraints, and an example.',
       explanation: 'It is fine to ask for efficiency when you can describe a useful target. Here, the essential task is to make the function’s behavior explicit.',
@@ -345,6 +691,200 @@ const MODULE = {
 };
 if (typeof module !== 'undefined' && module.exports) module.exports = MODULE;
 </script>
+  <script>// Student wording, code, keys, and feedback transcribed from CC3_prepost.md.
+// Answer indexes are zero-based. Pre-test Q2 requires manual rubric scoring.
+const ASSESSMENTS = {
+  version: '1.0.0',
+  pre: {
+    title: 'Pre-test',
+    instruction: 'Answer on your own, without an AI tool or running the code. Choose one answer for each multiple-choice question. Question 2 needs only one sentence. It is fine if some of this is unfamiliar; this check helps us see where you are starting. You will receive explanations after the post-test.',
+    questions: [
+      {
+        id: 'PRE_Q1',
+        type: 'single',
+        question: 'You ask a generative AI tool to write a Python function. How does it produce the text of its response?',
+        options: [
+          'It finds a stored program for that prompt and copies it without changes.',
+          'It predicts likely next pieces of text using learned patterns and the prompt.',
+          'It runs the requested function first and turns the result into source code.',
+          'It translates each sentence into Python using a fixed set of grammar rules.'
+        ],
+        answer: 1,
+        feedback: 'The model predicts likely next pieces of text using patterns learned during training and the current prompt. These pieces are called tokens. Generation is probabilistic: different continuations can be selected. This process does not, by itself, guarantee that the code has been executed or is correct.'
+      },
+      {
+        id: 'PRE_Q2',
+        type: 'text',
+        context: 'You ask an AI tool:',
+        spec: 'Write a Python function countRed(labels). labels is a list of strings. Return how many labels are "red".',
+        afterSpec: 'The returned function counts "red" but not "Red" or "RED". You want all three to count.',
+        question: 'Write one sentence to add to the prompt that makes this requirement clear. You do not need to write code or repeat the whole prompt.',
+        feedback: 'An addition such as "Ignore capitalization when matching labels: red, Red, and RED all count" states the missing requirement. A revised response still needs to be checked.'
+      },
+      {
+        id: 'PRE_Q3',
+        type: 'single',
+        context: 'An AI tool returns this function:',
+        code: 'def countBelowTen(numbers):\n    count = 0\n    for number in numbers:\n        if number < 10:\n            count += 1\n    return count',
+        question: 'What does countBelowTen([10, 3, 12, 8]) return?',
+        options: ['1', '3', '4', '2'],
+        answer: 3,
+        feedback: 'Only 3 and 8 are less than 10, so the function returns 2. The value 10 is not counted.'
+      },
+      {
+        id: 'PRE_Q4',
+        type: 'single',
+        context: 'You gave the AI this prompt:',
+        spec: 'Write doubleValues(numbers). numbers is a list of integers. Return a new list with each value doubled. Do not change numbers.',
+        codeLabel: 'It returned:',
+        code: 'def doubleValues(numbers):\n    for i in range(len(numbers)):\n        numbers[i] = numbers[i] * 2\n    return numbers',
+        question: 'Which statement describes the code?',
+        options: [
+          "It doubles the values, but changes the original list despite the prompt's instruction.",
+          'It doubles the values in a new list and leaves the original list unchanged.',
+          'It leaves the original list unchanged, but skips doubling its last value.',
+          'It changes the original list, but doubles each index instead of each value.'
+        ],
+        answer: 0,
+        feedback: 'Assigning to numbers[i] replaces values in the original list. The prompt already said not to change that list; this is a failure to follow an explicit requirement, not a missing prompt detail.'
+      },
+      {
+        id: 'PRE_Q5',
+        type: 'single',
+        context: 'You want totalThrough(n) to return the sum of the integers from 1 through n, including n. Assume n is a positive integer. The AI returns:',
+        code: 'def totalThrough(n):\n    total = 0\n    for number in range(1, n):\n        total += number\n    return total',
+        question: 'Which test has the correct expected result and would fail with this code?',
+        options: [
+          'totalThrough(1) should return 1.',
+          'totalThrough(2) should return 1.',
+          'totalThrough(3) should return 3.',
+          'totalThrough(4) should return 6.'
+        ],
+        answer: 0,
+        feedback: "The sum from 1 through 1 is 1, but range(1, 1) is empty. The code returns 0. The other choices give the code's actual results, but those results omit the required endpoint and are not correct expectations."
+      },
+      {
+        id: 'PRE_Q6',
+        type: 'single',
+        context: "You want firstLetters(words) to return the first letter of each word. An empty list should produce an empty list. Each word is a non-empty string.\n\nThe AI's first version failed this test:",
+        code: 'firstLetters([])  # expected: []; actual: an error',
+        question: 'You report the failed test and ask for a revision. The AI sends new code and says it fixed the problem. What should you do next?',
+        options: [
+          'Run the empty-list test; if it passes, the other behavior needs no further checking.',
+          'Read the revision, rerun the empty-list test, and check a list of words against expected letters.',
+          'Run a list of words; if the letters are right, the empty-list test is no longer needed.',
+          'Ask the AI to explain its fix; if the explanation makes sense, use the revision.'
+        ],
+        answer: 1,
+        feedback: 'Read what changed, check the input that failed, and check ordinary inputs too. For example, firstLetters(["cat", "dog"]) should return ["c", "d"]. A revision can fix one problem while introducing another.'
+      }
+    ]
+  },
+  post: {
+    title: 'Post-test',
+    instruction: 'Answer on your own, without an AI tool or running the code. Choose one answer for each question. You will receive explanations after you submit.',
+    questions: [
+      {
+        id: 'POST_Q1',
+        type: 'single',
+        question: 'A generative AI tool receives the same Python request twice and produces differently written functions. Which explanation fits how it generates a response?',
+        options: [
+          'It retrieves the one stored answer for that request; the difference must come from running Python.',
+          'It uses fixed translation rules, so the difference proves the two requests had different meanings.',
+          'It generates pieces of text from learned patterns; more than one continuation can fit the same request.',
+          'It tests candidate programs against the request and returns only programs whose behavior is correct.'
+        ],
+        answer: 2,
+        feedback: 'More than one continuation can fit a prompt, so generated code can vary. A specific prompt provides requirements to check; it does not guarantee identical or correct responses.'
+      },
+      {
+        id: 'POST_Q2',
+        type: 'single',
+        context: 'You ask an AI tool:',
+        spec: 'Write a Python function countBlue(labels). labels is a list of strings. Return how many labels are "blue".',
+        afterSpec: 'The returned function counts "blue" but not "Blue" or "BLUE". You want all three to count.',
+        question: 'Which sentence should you add to the prompt?',
+        options: [
+          'Count matches regardless of capitalization; "blue", "Blue", and "BLUE" should all count.',
+          'Count only labels written entirely in lowercase; other spellings should not count.',
+          'Return the count as an integer; return zero when the input list is empty.',
+          'Count any label containing the letters "blue"; "blueberry" should also count.'
+        ],
+        answer: 0,
+        feedback: 'The missing requirement is how to handle capitalization. An integer return and an empty-list rule do not resolve that gap. Matching part of a longer label would change the task.'
+      },
+      {
+        id: 'POST_Q3',
+        type: 'single',
+        context: 'An AI tool returns this function:',
+        code: 'def countAboveFive(numbers):\n    count = 0\n    for number in numbers:\n        if number > 5:\n            count += 1\n    return count',
+        question: 'What does countAboveFive([9, 5, 2, 7]) return?',
+        options: ['3', '2', '1', '4'],
+        answer: 1,
+        feedback: 'Only 9 and 7 are greater than 5, so the function returns 2. The value 5 is not counted.'
+      },
+      {
+        id: 'POST_Q4',
+        type: 'single',
+        context: 'You gave the AI this prompt:',
+        spec: 'Write addOne(numbers). numbers is a list of integers. Return a new list with each value increased by one. Do not change numbers.',
+        codeLabel: 'It returned:',
+        code: 'def addOne(numbers):\n    result = []\n    for number in numbers:\n        result.append(number + 1)\n    return result',
+        question: 'Which statement describes the code?',
+        options: [
+          "It adds one to each value, but changes the original list despite the prompt's instruction.",
+          'It leaves the original list unchanged, but adds one to each index instead of each value.',
+          'It creates a new list, but appending results also adds them to the original list.',
+          'It adds one to each value in a new list and leaves the original list unchanged.'
+        ],
+        answer: 3,
+        feedback: 'The function appends to a separate result list. It does not assign into numbers, and it returns the new list. This implementation meets the stated requirements; AI-written code does not always need a correction.'
+      },
+      {
+        id: 'POST_Q5',
+        type: 'single',
+        context: 'You want countShortWords(words) to count words with at most three letters. Assume words is a list of non-empty strings. The AI returns:',
+        code: 'def countShortWords(words):\n    count = 0\n    for word in words:\n        if len(word) < 3:\n            count += 1\n    return count',
+        question: 'Which test has the correct expected result and would fail with this code?',
+        options: [
+          'countShortWords(["cat"]) should return 1.',
+          'countShortWords(["go"]) should return 1.',
+          'countShortWords(["tree"]) should return 0.',
+          'countShortWords([]) should return 0.'
+        ],
+        answer: 0,
+        feedback: '"cat" has three letters and should count, but len(word) < 3 excludes it. The function returns 0. The other three tests have correct expectations and pass, but do not expose the boundary problem.'
+      },
+      {
+        id: 'POST_Q6',
+        type: 'single',
+        context: "You want wordLengths(words) to return the length of each word. An empty list should produce an empty list. Each word is a non-empty string.\n\nThe AI's first version failed this test:",
+        code: 'wordLengths([])  # expected: []; actual: an error',
+        question: 'You report the failed test and ask for a revision. The AI sends new code and says it fixed the problem. What should you do next?',
+        options: [
+          'Ask the AI to explain its fix; if the explanation makes sense, use the revision.',
+          'Run a list of words; if the lengths are right, the empty-list test is no longer needed.',
+          'Read the revision, rerun the empty-list test, and check a list of words against expected lengths.',
+          'Run the empty-list test; if it passes, the other behavior needs no further checking.'
+        ],
+        answer: 2,
+        feedback: 'Check the repair on the failed case and on ordinary inputs. For example, wordLengths(["sun", "go"]) should return [3, 2]. Passing these tests provides evidence for those cases, rather than proof for every possible input.'
+      }
+    ]
+  },
+  rubric: {
+    PRE_Q2: {
+      maxPoints: 1,
+      scoring: 'manual',
+      onePoint: 'Clearly requires matching regardless of capitalization, or explicitly says that "red", "Red", and "RED" all count. Accept plain language, a clear example, or an instruction to compare lowercase versions. Technical vocabulary and polished grammar are not required.',
+      zeroPoints: 'Does not resolve capitalization, gives a conflicting instruction, or provides no response. Examples include "make it correct," "return an integer," and "count only lowercase red."',
+      guidance: 'Do not require a full function signature, an implementation, or unrelated edge cases. Record a blank response separately from an attempted answer even though both earn zero points.'
+    }
+  }
+};
+
+if (typeof module !== 'undefined' && module.exports) module.exports = { ASSESSMENTS };
+</script>
   <script>/* Pure session logic, shared by the page and the automated checks. */
 const PilotState = (() => {
   const clone = value => JSON.parse(JSON.stringify(value));
@@ -426,31 +966,242 @@ const PilotState = (() => {
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = PilotState;
 </script>
+  <script>/* Pure state and export logic for the combined, offline pilot study. */
+const StudyState = (() => {
+  const practice = typeof PilotState !== 'undefined' ? PilotState : require('./module-state.js');
+  const VERSION = '2.0.0';
+  const MAX_TEXT = 2000;
+  const phases = ['welcome', 'pre', 'practice', 'post', 'complete'];
+  const clone = value => JSON.parse(JSON.stringify(value));
+  const date = () => new Date().toISOString();
+  const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+  const timestamp = value => typeof value === 'string' && Number.isFinite(Date.parse(value));
+  const questions = (assessments, kind) => assessments[kind].questions;
+  const blankTest = () => ({ drafts: {}, responses: {}, submittedAt: null, activeMs: 0 });
+  const isText = q => q.type === 'text';
+  const valid = (q, value) => isText(q)
+    ? typeof value === 'string' && value.length <= MAX_TEXT
+    : q.type === 'single' && Number.isInteger(value) && value >= 0 && value < q.options.length;
+  const activeTest = (study, kind) => ['pre', 'post'].includes(kind) && study.phase === kind && !study.tests[kind].submittedAt;
+  const moduleComplete = (study, content) => Boolean(study.module.completedAt) && content.questions.every(q => study.module.responses[q.id]);
+  const moduleUntouched = study => study.module.position === 0 && !study.module.completedAt && Object.keys(study.module.responses).length === 0 && Object.keys(study.module.timings).length === 0;
+  const testUntouched = value => !value.submittedAt && !Object.keys(value.drafts).length && !Object.keys(value.responses).length && value.activeMs === 0;
+
+  function create(content, assessments) {
+    const moduleState = practice.create(content);
+    return { version: VERSION, assessmentVersion: assessments.version, sessionId: moduleState.sessionId, startedAt: moduleState.startedAt, module: moduleState, phase: 'welcome', testPosition: 0, tests: { pre: blankTest(), post: blankTest() }, completedAt: null };
+  }
+
+  function saveDraft(study, assessments, kind, id, value) {
+    if (!activeTest(study, kind)) return false;
+    const q = questions(assessments, kind).find(item => item.id === id);
+    if (!q || !valid(q, value)) return false;
+    study.tests[kind].drafts[id] = value;
+    return true;
+  }
+
+  function goPhase(study, content, phase) {
+    const next = phases.indexOf(phase);
+    if (next < 0 || next !== phases.indexOf(study.phase) + 1) return false;
+    if (phase === 'practice' && !study.tests.pre.submittedAt) return false;
+    if (phase === 'post' && (!study.tests.pre.submittedAt || !moduleComplete(study, content))) return false;
+    if (phase === 'complete' && (!study.tests.post.submittedAt || !moduleComplete(study, content))) return false;
+    study.phase = phase;
+    study.testPosition = 0;
+    if (phase === 'complete') study.completedAt = study.tests.post.submittedAt;
+    return true;
+  }
+
+  function setTestPosition(study, assessments, index) {
+    if (!activeTest(study, study.phase) || !Number.isInteger(index) || index < 0 || index > questions(assessments, study.phase).length) return false;
+    study.testPosition = index;
+    return true;
+  }
+
+  function responseFor(q, answer, answeredAt) {
+    if (isText(q)) return { answer, correct: null, points: answer.trim() ? null : 0, status: answer.trim() ? 'pending_manual_review' : 'blank', answeredAt };
+    const correct = answer === q.answer;
+    return { answer, correct, points: correct ? 1 : 0, status: 'auto_scored', answeredAt };
+  }
+
+  function submitTest(study, assessments, kind) {
+    if (!activeTest(study, kind)) return false;
+    const test = study.tests[kind], items = questions(assessments, kind);
+    if (items.some(q => !valid(q, test.drafts[q.id] ?? (isText(q) ? '' : null)))) return false;
+    const submittedAt = date();
+    for (const q of items) {
+      const answer = test.drafts[q.id] ?? '';
+      test.drafts[q.id] = answer;
+      test.responses[q.id] = responseFor(q, answer, submittedAt);
+    }
+    test.submittedAt = submittedAt;
+    study.phase = kind === 'pre' ? 'practice' : 'complete';
+    study.testPosition = 0;
+    if (kind === 'post') study.completedAt = submittedAt;
+    return true;
+  }
+
+  function scoreTest(study, assessments, kind) {
+    const items = questions(assessments, kind), responses = study.tests[kind].responses;
+    return {
+      autoCorrect: items.filter(q => !isText(q) && responses[q.id]?.correct === true).length,
+      autoTotal: items.filter(q => !isText(q)).length,
+      pendingManual: items.filter(q => isText(q) && responses[q.id]?.status === 'pending_manual_review').length,
+      total: items.length
+    };
+  }
+
+  function restore(raw, content, assessments) {
+    try {
+      const stored = JSON.parse(raw);
+      if (!record(stored) || stored.version !== VERSION || stored.assessmentVersion !== assessments.version || !phases.includes(stored.phase) || !record(stored.module) || !record(stored.tests)) return null;
+      if (typeof stored.sessionId !== 'string' || !stored.sessionId.length || stored.sessionId.length > 100 || !timestamp(stored.startedAt)) return null;
+      if (stored.module.sessionId !== stored.sessionId || stored.module.startedAt !== stored.startedAt) return null;
+      if (stored.completedAt !== null && !timestamp(stored.completedAt)) return null;
+      if (stored.module.completedAt !== null && !timestamp(stored.module.completedAt)) return null;
+      const moduleState = practice.restore(JSON.stringify(stored.module), content);
+      if (!moduleState || moduleState.completedAt !== stored.module.completedAt) return null;
+      const fresh = create(content, assessments);
+      Object.assign(fresh, { sessionId: stored.sessionId, startedAt: stored.startedAt, module: moduleState, phase: stored.phase, completedAt: stored.completedAt });
+      for (const kind of ['pre', 'post']) {
+        const source = stored.tests[kind], target = fresh.tests[kind], items = questions(assessments, kind);
+        if (!record(source) || !record(source.drafts) || !record(source.responses) || !Number.isFinite(source.activeMs) || source.activeMs < 0) return null;
+        if (source.submittedAt !== null && (!timestamp(source.submittedAt) || Date.parse(source.submittedAt) < Date.parse(fresh.startedAt))) return null;
+        const ids = new Set(items.map(q => q.id));
+        if (Object.keys(source.drafts).some(id => !ids.has(id)) || Object.keys(source.responses).some(id => !ids.has(id))) return null;
+        target.activeMs = source.activeMs;
+        target.submittedAt = source.submittedAt;
+        for (const q of items) {
+          if (Object.prototype.hasOwnProperty.call(source.drafts, q.id)) {
+            if (!valid(q, source.drafts[q.id])) return null;
+            target.drafts[q.id] = source.drafts[q.id];
+          }
+          const response = source.responses[q.id];
+          if (source.submittedAt) {
+            if (!record(response) || !valid(q, response.answer) || response.answeredAt !== source.submittedAt || source.drafts[q.id] !== response.answer) return null;
+            target.responses[q.id] = responseFor(q, response.answer, response.answeredAt);
+          } else if (response !== undefined) return null;
+        }
+      }
+      const pre = fresh.tests.pre, post = fresh.tests.post;
+      if (fresh.phase === 'welcome' && (!testUntouched(pre) || !moduleUntouched(fresh) || !testUntouched(post))) return null;
+      if (fresh.phase === 'pre' && (pre.submittedAt || !moduleUntouched(fresh) || !testUntouched(post))) return null;
+      if (['practice', 'post', 'complete'].includes(fresh.phase) && !pre.submittedAt) return null;
+      if (fresh.phase === 'practice' && !testUntouched(post)) return null;
+      if (['post', 'complete'].includes(fresh.phase) && !moduleComplete(fresh, content)) return null;
+      if (fresh.phase === 'post' && post.submittedAt) return null;
+      if (fresh.phase === 'complete' && (!post.submittedAt || fresh.completedAt !== post.submittedAt)) return null;
+      if (fresh.phase !== 'complete' && fresh.completedAt !== null) return null;
+      if (post.submittedAt && Date.parse(post.submittedAt) < Date.parse(moduleState.completedAt)) return null;
+      if (pre.submittedAt && Object.values(moduleState.responses).some(response => Date.parse(response.answeredAt) < Date.parse(pre.submittedAt))) return null;
+      if (!Number.isInteger(stored.testPosition) || stored.testPosition < 0) return null;
+      if (['pre', 'post'].includes(fresh.phase)) {
+        if (!setTestPosition(fresh, assessments, stored.testPosition)) return null;
+      } else if (stored.testPosition !== 0) return null;
+      return fresh;
+    } catch { return null; }
+  }
+
+  function exportJson(study, content, assessments) {
+    const result = clone(study);
+    result.exportedAt = date();
+    result.moduleVersion = content.version;
+    result.assessmentVersion = assessments.version || null;
+    result.rubric = clone(assessments.rubric || {});
+    result.module.questions = content.questions.map(q => ({ ...clone(q), response: clone(study.module.responses[q.id] || null), timing: clone(study.module.timings[q.id] || {}) }));
+    for (const kind of ['pre', 'post']) result.tests[kind].questions = questions(assessments, kind).map(q => ({ ...clone(q), response: clone(study.tests[kind].responses[q.id] || null) }));
+    result.summaries = {
+      pre: scoreTest(study, assessments, 'pre'),
+      practice: { correct: practice.score(study.module, content), scoredTotal: content.questions.filter(q => q.scored).length, answered: Object.keys(study.module.responses).length, total: content.questions.length },
+      post: scoreTest(study, assessments, 'post')
+    };
+    return result;
+  }
+
+  function csv(study, content, assessments) {
+    const headers = ['session_id', 'study_version', 'content_version', 'phase', 'question_id', 'section', 'question', 'scored', 'response', 'response_value', 'correct', 'points', 'manual_status', 'answered_at', 'phase_submitted_at', 'active_answer_seconds', 'active_feedback_seconds', 'test_active_seconds'];
+    const rows = [];
+    const seconds = value => ((value || 0) / 1000).toFixed(1);
+    function testRows(kind) {
+      const test = study.tests[kind];
+      for (const q of questions(assessments, kind)) {
+        const r = test.responses[q.id], answer = r?.answer ?? test.drafts[q.id];
+        const text = answer === undefined ? '' : isText(q) ? answer : q.options[answer];
+        rows.push([study.sessionId, VERSION, assessments.version || '', kind, q.id, kind === 'pre' ? 'Pre-test' : 'Post-test', q.question, 'yes', text, answer ?? '', r?.correct == null ? '' : r.correct ? 'yes' : 'no', r?.points ?? '', r?.status || (answer !== undefined ? 'draft' : 'unanswered'), r?.answeredAt || '', test.submittedAt || '', '', '', seconds(test.activeMs)]);
+      }
+    }
+    testRows('pre');
+    for (const q of content.questions) {
+      const r = study.module.responses[q.id], timing = study.module.timings[q.id] || {};
+      rows.push([study.sessionId, VERSION, content.version, 'practice', q.id, content.sections[q.section], q.question, q.scored ? 'yes' : 'no', practice.answerText(q, r?.answer), r ? JSON.stringify(r.answer) : '', r ? (r.correct ? 'yes' : 'no') : '', r && q.scored ? (r.correct ? 1 : 0) : '', r ? (q.scored ? 'auto_scored' : 'practice_unscored') : 'unanswered', r?.answeredAt || '', study.module.completedAt || '', seconds(timing.questionMs), seconds(timing.feedbackMs), '']);
+    }
+    testRows('post');
+    const cell = value => {
+      let text = String(value);
+      if (/^[\s\u0000-\u001f]*[=+\-@]/.test(text) || /^[\t\r\n]/.test(text)) text = "'" + text;
+      return '"' + text.replace(/"/g, '""') + '"';
+    };
+    return '\ufeff' + [headers, ...rows].map(row => row.map(cell).join(',')).join('\r\n');
+  }
+
+  return { create, restore, saveDraft, goPhase, setTestPosition, submitTest, scoreTest, exportJson, csv };
+})();
+if (typeof module !== 'undefined' && module.exports) module.exports = StudyState;
+</script>
   <script>(() => {
   'use strict';
   const content = MODULE;
   const model = PilotState;
-  const key = 'cmu-programming-ai-pilot-v1';
+  const tests = ASSESSMENTS;
+  const studyModel = StudyState;
+  const key = 'cmu-programming-ai-study-v2';
   const app = document.getElementById('app');
   const esc = text => String(text ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+  function inlineCode(text) {
+    // Keep function calls visually distinct without accepting HTML from content.
+    return String(text ?? '').split(/(\b[A-Za-z_][A-Za-z0-9_]*\([^()\n]*\))/g)
+      .map((part,i) => i % 2 ? `<code>${esc(part)}</code>` : esc(part)).join('');
+  }
+  function annotatedCode(text, snippets) {
+    if (!snippets) return inlineCode(text);
+    const spans = snippets.map(snippet => {
+      const value = typeof snippet === 'string' ? snippet : snippet.text;
+      const occurrence = typeof snippet === 'string' ? 1 : snippet.occurrence;
+      let start = -1;
+      for (let i = 0; i < occurrence; i++) {
+        start = text.indexOf(value, start + 1);
+        if (start === -1) return null;
+      }
+      return { start, end: start + value.length };
+    }).filter(Boolean).sort((a,b) => a.start - b.start);
+    let html = '', cursor = 0;
+    for (const { start, end } of spans) {
+      if (start < cursor) continue;
+      html += esc(text.slice(cursor,start)) + '<code>' + esc(text.slice(start,end)) + '</code>';
+      cursor = end;
+    }
+    return html + esc(text.slice(cursor));
+  }
   const icon = name => '<svg viewBox="0 0 24 24" aria-hidden="true">' + ({
     check:'<path d="m5 12 4 4L19 6"/>', arrow:'<path d="M5 12h14m-6-6 6 6-6 6"/>', back:'<path d="M19 12H5m6-6-6 6 6 6"/>',
     review:'<path d="M12 8v5m0 4h.01"/><circle cx="12" cy="12" r="9"/>', download:'<path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/>'
   }[name] || '') + '</svg>';
   let storageWarning = '';
-  let state;
+  let study;
   try {
     const raw = localStorage.getItem(key);
-    state = raw ? model.restore(raw, content) : null;
-    if (raw && !state) storageWarning = 'The previous saved session could not be restored. This is a new session.';
+    study = raw ? studyModel.restore(raw, content, tests) : null;
+    if (raw && !study) storageWarning = 'The previous saved session could not be restored. This is a new session.';
   } catch { storageWarning = 'Progress cannot be saved in this browser. Keep this tab open; you can download your results at the end.'; }
-  state ||= model.create(content);
+  study ||= studyModel.create(content, tests);
+  let state = study.module;
   let drafts = {};
+  let reviewingPractice = false;
   let segmentStart = performance.now();
-  let active = !document.hidden;
+  let active = !document.hidden && document.hasFocus();
 
   function persist() {
-    try { localStorage.setItem(key, JSON.stringify(state)); }
+    try { localStorage.setItem(key, JSON.stringify(study)); }
     catch { storageWarning = 'Progress cannot be saved in this browser. Keep this tab open; you can download your results at the end.'; }
     const notice = document.getElementById('storage-warning');
     if (notice && storageWarning) { notice.hidden = false; notice.textContent = storageWarning; }
@@ -458,7 +1209,9 @@ if (typeof module !== 'undefined' && module.exports) module.exports = PilotState
   function timingKey() { return state.position === 0 ? 'intro' : state.position > content.questions.length ? 'closing' : content.questions[state.position-1].id; }
   function flush() {
     const now = performance.now();
-    if (active) {
+    if (active && (study.phase === 'pre' || study.phase === 'post')) {
+      study.tests[study.phase].activeMs += Math.max(0, now - segmentStart);
+    } else if (active && study.phase === 'practice') {
       const id = timingKey();
       const phase = state.responses[id] ? 'feedbackMs' : 'questionMs';
       state.timings[id] ||= { questionMs: 0, feedbackMs: 0 };
@@ -467,6 +1220,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = PilotState
     segmentStart = now;
   }
   function navigate(position) {
+    if (study.phase !== 'practice' && !(study.phase === 'complete' && reviewingPractice)) return;
     flush();
     if (!model.go(state, content, position)) return;
     persist(); render('page-title'); window.scrollTo({ top: 0, behavior: 'instant' });
@@ -492,7 +1246,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = PilotState
     if (q.reviewStep == null) return '';
     return `<ol class="review-steps" aria-label="Code review process">${['Trace','Diagnose','Verify','Refine'].map((label,i) => `<li class="${i===q.reviewStep?'current':i<q.reviewStep?'done':''}" ${i===q.reviewStep?'aria-current="step"':''}><span aria-hidden="true">${i+1}</span>${label}</li>`).join('')}</ol>`;
   }
-  function specification(text) { return `<div class="spec"><div class="label">The prompt</div><p>${esc(text)}</p></div>`; }
+  function specification(text) { return `<div class="spec"><div class="label">The prompt</div><p>${inlineCode(text)}</p></div>`; }
   function currentSection() { return state.position === 0 ? 0 : state.position > content.questions.length ? 5 : content.questions[state.position-1].section; }
   function sectionPosition(section) { return section === 0 ? 0 : section === 5 ? content.questions.length+1 : content.questions.findIndex(q => q.section === section)+1; }
   function sectionDone(section) {
@@ -501,17 +1255,17 @@ if (typeof module !== 'undefined' && module.exports) module.exports = PilotState
     return content.questions.filter(q => q.section === section).every(q => state.responses[q.id]);
   }
   function sidebar() {
-    return `<aside class="sidebar"><nav aria-label="Practice sections"><p class="side-label">Your practice</p><ol class="stage-list">${content.sections.map((name, i) => {
+    return `<aside class="sidebar"><details class="section-menu"><summary>Module sections <span class="section-current">${esc(content.sections[currentSection()])}</span></summary><nav aria-label="Practice sections"><ol class="stage-list">${content.sections.map((name, i) => {
       const current = currentSection() === i, done = sectionDone(i), target = sectionPosition(i);
       return `<li><button class="stage-button ${current?'current':''} ${done&&!current?'done':''}" data-go="${target}" ${target > model.reachable(state,content)?'disabled':''} ${current?'aria-current="step"':''} aria-label="${esc(name)}${done?', completed':''}"><span class="stage-number">${done&&!current?icon('check'):String(i+1).padStart(2,'0')}</span><span class="stage-name">${esc(name)}</span></button></li>`;
-    }).join('')}</ol></nav><div class="side-note"><strong>Make a choice. Read the feedback.</strong>Wrong answers are useful here. Take a moment to understand what the code does.</div></aside>`;
+    }).join('')}</ol></nav></details></aside>`;
   }
   function ruleList() {
     return `<div class="rules"><div class="rule"><span class="rule-index">01</span><div><h2>Be specific.</h2><p>Make the inputs, outputs, and requirements clear.</p></div></div><div class="rule"><span class="rule-index">02</span><div><h2>Read, trace, understand.</h2><p>Check what the code does, line by line.</p></div></div><div class="rule"><span class="rule-index">03</span><div><h2>Test, verify, iterate.</h2><p>Compare its behavior with an answer you already know.</p></div></div></div>`;
   }
   function intro() {
     const started = Object.keys(state.responses).length > 0;
-    return `<section class="intro"><p class="eyebrow">15-110 · Practice</p><h1 id="page-title" tabindex="-1">Programming with AI</h1><div class="intro-meta"><span>About 20–25 minutes</span><span>12 activities</span></div><p class="lead">Practice making the decisions that matter when you work with AI-written code. Read the prompt, trace the Python, and decide what needs checking.</p><div class="intro-content">${ruleList()}<div class="intro-aside"><h2>What you’ll do</h2><ul><li>Find what a vague prompt leaves open.</li><li>Build a specific prompt from pieces.</li><li>Work through two guided code reviews.</li><li>Make three review decisions on your own.</li></ul><p class="intro-note">All AI responses and test results were recorded ahead of time. You do not need an AI tool open—please don’t use one during this practice.</p></div></div><div class="intro-actions"><button class="btn primary" data-action="begin">${started?'Resume practice':'Begin practice'}${icon('arrow')}</button><small>You’ll get feedback after each answer.</small></div>${started?'<button class="new-session" data-action="reset">Start a new session</button>':''}</section>`;
+    return `<section class="intro"><h1 id="page-title" tabindex="-1">Programming with AI</h1><div class="intro-meta"><span>About 20–25 minutes</span><span>12 activities</span></div><p class="lead">Practice making the decisions that matter when you work with AI-written code. Read the prompt, trace the Python, and decide what needs checking.</p><div class="intro-content">${ruleList()}<div class="intro-aside"><h2>What you’ll do</h2><ul><li>Find what a vague prompt leaves open.</li><li>Build a specific prompt from pieces.</li><li>Work through two guided code reviews.</li><li>Make three review decisions on your own.</li></ul><p class="intro-note">All AI responses and test results were recorded ahead of time. You do not need an AI tool open—please don’t use one during this practice.</p></div></div><div class="intro-actions"><button class="btn primary" data-action="begin">${started?'Resume practice':'Begin practice'}${icon('arrow')}</button><small>You’ll get feedback after each answer.</small></div>${started?'<button class="new-session" data-action="reset">Start a new session</button>':''}</section>`;
   }
   function selectedValue(q) { return state.responses[q.id]?.answer ?? drafts[q.id] ?? (q.type === 'single' ? null : q.type === 'sort' ? q.fragments.map(() => -1) : []); }
   function choices(q) {
@@ -528,7 +1282,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = PilotState
     const value = selectedValue(q), response = state.responses[q.id];
     return `<div class="sort-list">${q.fragments.map((fragment,i) => {
       const right = value[i] === fragment[1];
-      return `<div class="sort-row ${response?(right?'good':'missed'):''}"><label for="fragment-${i}"><span class="fragment-number">${String(i+1).padStart(2,'0')}</span>${esc(fragment[0])}</label><select id="fragment-${i}" data-fragment="${i}" ${response?'disabled':''}><option value="-1">Choose a category…</option>${q.slots.map((slot,j) => `<option value="${j}" ${value[i]===j?'selected':''}>${esc(slot)}</option>`).join('')}</select>${response?`<div class="sort-result"><strong>${right?'Correct:':'Correct category:'} ${esc(q.slots[fragment[1]])}</strong>${esc(fragment[2])}</div>`:''}</div>`;
+      return `<div class="sort-row ${response?(right?'good':'missed'):''}"><label for="fragment-${i}"><span class="fragment-number">${String(i+1).padStart(2,'0')}</span>${annotatedCode(fragment[0],q.fragmentCode?.[i])}</label><select id="fragment-${i}" data-fragment="${i}" ${response?'disabled':''}><option value="-1">Choose a category…</option>${q.slots.map((slot,j) => `<option value="${j}" ${value[i]===j?'selected':''}>${esc(slot)}</option>`).join('')}</select>${response?`<div class="sort-result"><strong>${right?'Correct:':'Correct category:'} ${esc(q.slots[fragment[1]])}</strong>${esc(fragment[2])}</div>`:''}</div>`;
     }).join('')}</div>`;
   }
   function testResults(fixed = false, selection = null) {
@@ -553,32 +1307,84 @@ if (typeof module !== 'undefined' && module.exports) module.exports = PilotState
     const fixed = q.fixedCode ? codeBlock(content.codes[q.fixedCode], 'Corrected implementation', q.fixedFocusLines || []) : '';
     const comparison = q.traceResult ? `<div class="feedback-comparison"><div><span>Your prediction</span><code>${esc(q.options[response.answer])}</code></div><div><span>Actual return</span><code>${esc(q.traceResult)}</code></div></div>` : '';
     const lineNote = q.focusLine ? `<p class="line-reference"><strong>Line ${q.focusLine} in the original code:</strong> ${esc(q.lineNote)}</p>` : '';
-    return `<section id="feedback" class="feedback" tabindex="-1" aria-labelledby="feedback-heading"><div class="feedback-label ${response.correct?'':'revisit'}">${icon(response.correct?'check':'review')}${response.correct?'Your answer is correct':q.type==='sort'?'Compare the categories':'Let’s look at the explanation'}</div><h3 id="feedback-heading">${esc(q.takeaway)}</h3>${comparison}${lineNote}${extra}<p>${esc(q.explanation)}</p>${worked}${q.recordedTests?testResults(false,response.answer):''}${fixed}${q.fixedTests?`<details class="extra-feedback" data-testid="fixed-tests"><summary>View the recorded test results</summary>${testResults(true)}</details>`:''}${q.assembled?`<details class="extra-feedback"><summary>Read the assembled prompt</summary><div class="assembled">${esc(q.assembled)}</div></details>`:''}${otherFeedback}</section>`;
+    return `<section id="feedback" class="feedback" tabindex="-1" aria-labelledby="feedback-heading"><div class="feedback-label ${response.correct?'':'revisit'}">${icon(response.correct?'check':'review')}${response.correct?'Your answer is correct':q.type==='sort'?'Compare the categories':'Let’s look at the explanation'}</div><h3 id="feedback-heading">${esc(q.takeaway)}</h3>${comparison}${lineNote}${extra}<p>${esc(q.explanation)}</p>${worked}${q.recordedTests?testResults(false,response.answer):''}${fixed}${q.fixedTests?`<details class="extra-feedback" data-testid="fixed-tests"><summary>View the recorded test results</summary>${testResults(true)}</details>`:''}${q.assembled?`<details class="extra-feedback"><summary>Read the assembled prompt</summary><div class="assembled">${annotatedCode(q.assembled,q.assembledCode)}</div></details>`:''}${otherFeedback}</section>`;
   }
   function questionPage(q) {
     const index = state.position, answered = !!state.responses[q.id];
     const evidence = q.codeKeys?.length ? `<aside class="evidence" aria-label="Prompt and code">${q.spec?specification(q.spec):''}${q.codeKeys.map((k,i) => codeBlock(content.codes[k],q.codeLabels?.[i] || 'Recorded AI response',answered&&q.focusLine?[q.focusLine]:[])).join('')}${q.reminder?`<details class="reminder"><summary>Python reminder</summary><p>${esc(q.reminder)}</p></details>`:''}</aside>` : '';
-    return `<header class="activity-header"><p class="eyebrow">${esc(q.eyebrow || content.sections[q.section])}</p><h1 id="page-title" tabindex="-1">${esc(q.title)}</h1><p class="lead">${esc(q.context)}</p>${reviewSteps(q)}</header><div class="activity-grid ${evidence?'':'single-column'}">${evidence}<section class="answer-panel" aria-labelledby="question-title"><p class="question-kind">${q.type==='sort'?'Sort the fragments':q.type==='multi'?'Select all that apply':'Choose one answer'}${q.scored?'':' · Practice, not scored'}</p>${!evidence&&q.spec?specification(q.spec):''}<h2 id="question-title" class="question-title">${esc(q.question)}</h2>${q.instruction?`<p class="instruction">${esc(q.instruction)}</p>`:''}<form id="answer-form" novalidate>${q.type==='sort'?sorting(q):choices(q)}<p id="answer-error" class="error" role="alert" hidden></p>${feedback(q)}<div class="action-row"><button class="btn quiet" type="button" data-go="${index-1}">${icon('back')}Back</button>${answered?`<button class="btn primary" type="button" data-go="${index+1}">${index===content.questions.length?'Finish practice':'Continue'}${icon('arrow')}</button>`:`<button class="btn primary" type="submit">Check ${q.type==='sort'?'categories':'answer'}${icon('arrow')}</button>`}</div></form>${answered?'<p class="question-kind" style="margin:16px 0 0">Your first answer is saved. You can revisit the explanation.</p>':''}</section></div>${state.completedAt?'<button class="btn quiet" data-go="13">Return to wrap-up →</button>':''}`;
+    return `<header class="activity-header"><p class="eyebrow">${esc(q.eyebrow || content.sections[q.section])}</p><h1 id="page-title" tabindex="-1">${esc(q.title)}</h1><p class="lead">${esc(q.context)}</p>${reviewSteps(q)}</header><div class="activity-grid ${evidence?'':'single-column'}">${evidence}<section class="answer-panel" aria-labelledby="question-title"><p class="question-kind">${q.type==='sort'?'Sort the fragments':q.type==='multi'?'Select all that apply':'Choose one answer'}${q.scored?'':' · Practice, not scored'}</p>${!evidence&&q.spec?specification(q.spec):''}<h2 id="question-title" class="question-title">${inlineCode(q.question)}</h2>${q.instruction?`<p class="instruction">${esc(q.instruction)}</p>`:''}<form id="answer-form" novalidate>${q.type==='sort'?sorting(q):choices(q)}<p id="answer-error" class="error" role="alert" hidden></p>${feedback(q)}<div class="action-row"><button class="btn quiet" type="button" data-go="${index-1}">${icon('back')}Back</button>${answered?`<button class="btn primary" type="button" data-go="${index+1}">${index===content.questions.length?'Finish practice':'Continue'}${icon('arrow')}</button>`:`<button class="btn primary" type="submit">Check ${q.type==='sort'?'categories':'answer'}${icon('arrow')}</button>`}</div></form>${answered?'<p class="question-kind" style="margin:16px 0 0">Your first answer is saved. You can revisit the explanation.</p>':''}</section></div>${state.completedAt?`<button class="btn quiet" data-go="${content.questions.length+1}">Return to wrap-up →</button>`:''}`;
   }
   function closing() {
     const total = content.questions.filter(q => q.scored).length;
     return `<section class="closing"><p class="eyebrow">Practice complete</p><h1 id="page-title" tabindex="-1">Keep checking.</h1><p class="lead">Code that runs is not necessarily correct. You remain responsible for checking that it meets the requirements.</p><div class="closing-lessons"><h2>The three rules</h2>${ruleList()}</div><h2>Revisit an explanation</h2><ul class="review-list">${content.questions.map((q,i) => {
       const r = state.responses[q.id];
       return `<li><button class="review-item" data-go="${i+1}"><span class="review-icon ${r.correct?'':'revisit'}">${icon(r.correct?'check':'review')}</span><span class="review-text">${esc(q.title)}<small>${q.scored?(r.correct?'Correct on first attempt':'Worth another look'):'Unscored practice'}</small></span><span class="arrow">${icon('arrow')}</span></button></li>`;
-    }).join('')}</ul><p class="score-summary"><strong>${model.score(state,content)} of ${total}</strong> scored questions answered correctly on your first attempt. The two unscored activities are not included.</p><div class="session-tools"><h2>Save this session</h2><p>Download the answers and time spent for your pilot discussion. Results stay in this browser until you save or share the file.</p><div class="download-actions"><button class="btn primary" data-action="csv">${icon('download')}Save results (.csv)</button><button class="btn secondary" data-action="json">Save session (.json)</button></div><p id="download-status" role="status"></p><p>You can save these files before starting with the next participant.</p><button class="new-session" data-action="reset">Start a new session</button></div></section>`;
+    }).join('')}</ul><p class="score-summary"><strong>${model.score(state,content)} of ${total}</strong> scored questions answered correctly on your first attempt. The two unscored activities are not included.</p><div class="session-tools">${study.phase==='practice'?`<h2>Next: the post-test</h2><p>Six questions, about 6–8 minutes. Work independently, without an AI tool or running the code. Once you begin, the practice explanations will be unavailable until you finish the post-test.</p><button class="btn primary" data-action="start-post">Begin post-test${icon('arrow')}</button>`:'<button class="btn primary" data-action="return-results">Return to results</button>'}</div></section>`;
+  }
+  function studyNav() {
+    const phase = ['welcome','pre'].includes(study.phase) ? 0 : study.phase === 'practice' || reviewingPractice ? 1 : study.phase === 'post' ? 2 : null;
+    const completed = [!!study.tests.pre.submittedAt, !!state.completedAt, !!study.tests.post.submittedAt];
+    return `<nav class="study-stages" aria-label="Pilot study stages"><ol>${['Pre-test','Learning module','Post-test'].map((label,i) => `<li ${i===phase?'aria-current="step"':''}><span class="study-stage-number" aria-hidden="true">${i+1}</span><span class="study-stage-label">${label}</span>${completed[i]?'<span class="sr-only">, completed</span>':''}</li>`).join('')}</ol></nav>`;
+  }
+  function welcome() {
+    return `<section class="intro study-intro"><h1 id="page-title" tabindex="-1">Programming with AI</h1><p class="lead">This pilot includes a short pre-test, a learning module, and a short post-test, all in this page.</p><ol class="study-overview"><li><strong>Pre-test</strong><span>6 questions · about 6–8 minutes</span></li><li><strong>Learning module</strong><span>12 activities · about 20–25 minutes</span></li><li><strong>Post-test</strong><span>6 questions · about 6–8 minutes</span></li></ol><p>Allow about 32–41 minutes in total. Work independently without an AI tool or running the code. All code and results needed to answer are provided.</p><p>You will receive feedback during practice. Pre-test and post-test explanations will be available after you submit the post-test.</p><p class="instruction">Progress is saved in this browser when available. At the end, download your results to keep a record. Responses are not sent anywhere automatically.</p><div class="intro-actions"><button class="btn primary" data-action="start-study">Begin pre-test${icon('arrow')}</button></div></section>`;
+  }
+  function assessmentPage() {
+    const kind = study.phase, test = tests[kind], record = study.tests[kind];
+    const index = study.testPosition;
+    if (index === test.questions.length) {
+      const missing = test.questions.filter(q => q.type === 'single' && !Number.isInteger(record.drafts[q.id]));
+      return `<section class="assessment"><p class="eyebrow">${esc(test.title)}</p><h1 id="page-title" tabindex="-1">Review your responses</h1><p>You can change your responses before submitting. Submission locks all six answers.${kind==='pre'?' Explanations will be available after the post-test.':''}</p><ol class="assessment-review">${test.questions.map((q,i) => `<li><div><strong>Question ${i+1}</strong><p>${esc(q.type==='text' ? (record.drafts[q.id]?.trim() || 'No response') : (q.options[record.drafts[q.id]] ?? 'Not answered'))}</p></div><button class="btn quiet" data-test-go="${i}" aria-label="Edit question ${i+1}">Edit</button></li>`).join('')}</ol><p id="answer-error" class="error" role="alert" ${missing.length?'':'hidden'}>${missing.length?'Answer all multiple-choice questions before submitting.':''}</p><div class="action-row"><button class="btn quiet" data-test-go="${test.questions.length-1}">${icon('back')}Back</button><button class="btn primary" data-action="submit-test" ${missing.length?'disabled':''}>Submit ${kind==='pre'?'pre-test':'post-test'}${icon('arrow')}</button></div></section>`;
+    }
+    const q = test.questions[index], value = record.drafts[q.id];
+    const input = q.type === 'text'
+      ? `<label for="test-response" class="instruction">Your sentence</label><textarea id="test-response" data-test-text="${q.id}" rows="4" maxlength="2000" aria-describedby="text-note">${esc(value || '')}</textarea><p id="text-note" class="instruction">You do not need to write code. If you cannot answer, leave this response blank and continue.</p>`
+      : `<fieldset class="choices"><legend class="sr-only">${esc(q.question)}</legend>${q.options.map((option,i) => `<label class="choice ${value===i?'selected':''}"><input type="radio" name="test-answer" data-test-answer="${q.id}" value="${i}" ${value===i?'checked':''}><span class="choice-body">${esc(option)}</span></label>`).join('')}</fieldset>`;
+    return `<section class="assessment"><header class="activity-header"><h1 id="page-title" tabindex="-1">${esc(test.title)}</h1><p class="lead">${q.type==='text'?'Write a one-sentence response.':'Choose one answer for this question.'}</p><details class="assessment-instructions" ${index===0?'open':''}><summary>Test instructions</summary><p>${esc(test.instruction)}</p></details></header><form id="test-form" novalidate><section class="answer-panel" aria-labelledby="test-question">${q.context?`<p class="assessment-context">${esc(q.context)}</p>`:''}${q.spec?specification(q.spec):''}${q.afterSpec?`<p>${esc(q.afterSpec)}</p>`:''}${q.codeLabel?`<p>${esc(q.codeLabel)}</p>`:''}${q.code?codeBlock(q.code,'Provided Python code'):''}<h2 id="test-question" class="question-title">${inlineCode(q.question)}</h2>${input}<p id="answer-error" class="error" role="alert" hidden></p><div class="action-row"><button class="btn quiet" type="button" data-test-go="${index-1}" ${index===0?'disabled':''}>${icon('back')}Back</button><button class="btn primary" type="submit">${index===test.questions.length-1?'Review responses':'Next'}${icon('arrow')}</button></div></section></form><p class="assessment-note">Your responses remain editable until you submit this test.</p></section>`;
+  }
+  function complete() {
+    const pre = studyModel.scoreTest(study,tests,'pre'), post = studyModel.scoreTest(study,tests,'post');
+    return `<section class="closing study-complete"><h1 id="page-title" tabindex="-1">Thank you for taking part.</h1><p class="lead">Your responses are saved in this browser when available. Download this session below to keep a record.</p><dl class="study-scores"><div><dt>Pre-test</dt><dd>${pre.autoCorrect} / ${pre.autoTotal} multiple-choice questions correct</dd><dd>${pre.pendingManual?'The written response is awaiting manual review.': 'Written response: no response, 0 / 1 point.'}</dd></div><div><dt>Learning module</dt><dd>${model.score(state,content)} / ${content.questions.filter(q=>q.scored).length} scored practice questions correct</dd></div><div><dt>Post-test</dt><dd>${post.autoCorrect} / ${post.total} questions correct</dd></div></dl><div class="download-actions"><button class="btn primary" data-action="csv">${icon('download')}Save results (.csv)</button><button class="btn secondary" data-action="json">Save session (.json)</button></div><p id="download-status" role="status"></p><p><button class="btn secondary" data-action="review-practice">Review learning module</button></p><h2>Assessment feedback</h2><p>Open a question to review your response and the explanation.</p>${['pre','post'].map(kind => `<section class="test-feedback" aria-label="${tests[kind].title} feedback"><h3>${tests[kind].title}</h3>${tests[kind].questions.map((q,i) => {
+      const r = study.tests[kind].responses[q.id];
+      const response = q.type==='text' ? (r.answer.trim() || 'No response') : q.options[r.answer];
+      return `<details class="assessment-feedback"><summary>Question ${i+1} · ${q.type==='text'?(r.status==='blank'?'No response':'Awaiting manual review'):(r.correct?'Correct':'Review the explanation')}</summary><div>${q.context?`<p class="assessment-context">${esc(q.context)}</p>`:''}${q.spec?specification(q.spec):''}${q.afterSpec?`<p>${esc(q.afterSpec)}</p>`:''}${q.codeLabel?`<p>${esc(q.codeLabel)}</p>`:''}${q.code?codeBlock(q.code,'Provided Python code'):''}<p><strong>${inlineCode(q.question)}</strong></p><p><strong>Your response:</strong> ${esc(response)}</p>${q.type==='single'?`<p><strong>Correct answer:</strong> ${esc(q.options[q.answer])}</p>`:''}<p>${esc(q.feedback)}</p></div></details>`;
+    }).join('')}</section>`).join('')}<div class="session-tools"><p>Keep your downloaded files before starting with another participant.</p><button class="new-session" data-action="reset">Start a new session</button></div></section>`;
+  }
+  function changeTestPosition(index) {
+    flush();
+    if (!studyModel.setTestPosition(study,tests,index)) return;
+    persist(); render('page-title'); window.scrollTo({top:0,behavior:'instant'});
+  }
+  function changePhase(phase) {
+    flush();
+    if (!studyModel.goPhase(study,content,phase)) return;
+    persist(); render('page-title'); window.scrollTo({top:0,behavior:'instant'});
   }
   function render(focusId) {
     const count = Object.keys(state.responses).length;
-    const body = state.position === 0 ? intro() : state.position > content.questions.length ? closing() : questionPage(content.questions[state.position-1]);
-    const progressText = state.position === 0 ? 'Your practice, step by step' : state.position > content.questions.length ? 'All activities complete' : `Activity ${state.position} of ${content.questions.length}`;
-    app.innerHTML = `<header class="topbar"><div class="brand"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><div><strong>Programming with AI</strong><small>Question-based practice</small></div></div><div class="top-meta"><span class="course">15-110</span><span class="dot"></span><span>Informal pilot</span></div></header><div class="layout">${sidebar()}<main id="main" class="main"><div class="progress-line"><progress value="${count}" max="${content.questions.length}" aria-label="Activities answered">${count} of ${content.questions.length}</progress><span>${progressText}</span></div><p id="storage-warning" class="storage-warning" role="status" ${storageWarning?'':'hidden'}>${esc(storageWarning)}</p>${body}<footer class="footer"><span>Read the code. Make your call. Use the feedback.</span><span>Programming with AI · Practice</span></footer></main></div>`;
-    const title = state.position > 0 && state.position <= content.questions.length ? content.questions[state.position-1].title + ' · ' : '';
+    const inPractice = study.phase === 'practice' || (study.phase === 'complete' && reviewingPractice);
+    let body = inPractice ? (state.position === 0 ? intro() : state.position > content.questions.length ? closing() : questionPage(content.questions[state.position-1])) : study.phase === 'welcome' ? welcome() : study.phase === 'complete' ? complete() : assessmentPage();
+    if (study.phase==='practice' && state.position===0) body = '<p class="assessment-note" role="status">Pre-test submitted. Your explanations will be available after the post-test.</p>' + body;
+    if (study.phase === 'complete' && reviewingPractice) body = '<p><button class="btn quiet" data-action="return-results">← Return to results</button></p>' + body;
+    const testing = ['pre','post'].includes(study.phase);
+    const testLength = testing ? tests[study.phase].questions.length : 0;
+    const testProgress = Math.min(study.testPosition+1, testLength);
+    const progressText = inPractice
+      ? (state.position===0 ? 'Learning module' : state.position>content.questions.length ? 'Module complete' : 'Activity '+state.position+' of '+content.questions.length)
+      : testing ? (study.testPosition===testLength ? testLength+' questions · Review' : 'Question '+(study.testPosition+1)+' of '+testLength)
+      : study.phase==='complete' ? 'All three stages complete' : 'Study overview';
+    const progress = inPractice
+      ? '<progress value="'+count+'" max="'+content.questions.length+'" aria-label="Activities answered">'+count+' of '+content.questions.length+'</progress>'
+      : testing ? '<progress value="'+testProgress+'" max="'+testLength+'" aria-label="Position in this test">'+testProgress+' of '+testLength+'</progress>' : '';
+    app.innerHTML = `<header class="topbar"><div class="brand"><strong>Programming with AI</strong></div><div class="top-meta"><span class="course">15-110</span><span aria-hidden="true">·</span><span>Pilot study</span></div></header>${studyNav()}<div class="layout ${inPractice?'module-layout':'assessment-layout'}">${inPractice?sidebar():''}<main id="main" class="main"><div class="progress-line"><span>${progressText}</span>${progress}</div><p id="storage-warning" class="storage-warning" role="status" ${storageWarning?'':'hidden'}>${esc(storageWarning)}</p>${body}</main><footer class="footer"><span>Programming with AI · Pilot study</span><span>Responses stay in this browser until downloaded.</span></footer></div>`;
+    const title = inPractice && state.position > 0 && state.position <= content.questions.length ? content.questions[state.position-1].title + ' · ' : testing ? tests[study.phase].title + ' · ' : '';
     document.title = title + 'Programming with AI';
     if (focusId) document.getElementById(focusId)?.focus({ preventScroll: true });
   }
   function download(type) {
+    if (study.phase !== 'complete') return;
     flush(); persist();
-    const data = type === 'csv' ? model.csv(state,content) : JSON.stringify({ ...state, score: model.score(state,content), scoredQuestions: content.questions.filter(q=>q.scored).length, timingNote: 'Approximate active time; paused while the page is hidden or the window loses focus.', questions: model.rows(state,content).map(row => ({ id:row[2], section:row[3], question:row[4], scored:row[5]==='yes', firstAnswer:row[6], correct:row[7]==='yes', answeredAt:row[8], activeAnswerSeconds:Number(row[9]), activeFeedbackSeconds:Number(row[10]) })) }, null, 2);
+    const data = type === 'csv' ? studyModel.csv(study,content,tests) : JSON.stringify(studyModel.exportJson(study,content,tests), null, 2);
     const blob = new Blob([data], { type: type === 'csv' ? 'text/csv;charset=utf-8' : 'application/json;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -587,6 +1393,16 @@ if (typeof module !== 'undefined' && module.exports) module.exports = PilotState
     document.getElementById('download-status').textContent = 'Download requested. Keep the file with your pilot notes.';
   }
   app.addEventListener('change', event => {
+    if (['pre','post'].includes(study.phase)) {
+      if (event.target.matches('[data-test-answer]')) {
+        studyModel.saveDraft(study,tests,study.phase,event.target.dataset.testAnswer,Number(event.target.value));
+        app.querySelectorAll('.choice').forEach(label => label.classList.toggle('selected',label.querySelector('input').checked));
+        persist();
+        const error = document.getElementById('answer-error'); if (error) error.hidden = true;
+      }
+      return;
+    }
+    if (study.phase !== 'practice') return;
     if (state.position < 1 || state.position > content.questions.length) return;
     const q = content.questions[state.position-1];
     if (state.responses[q.id]) return;
@@ -598,7 +1414,22 @@ if (typeof module !== 'undefined' && module.exports) module.exports = PilotState
     }
     const error = document.getElementById('answer-error'); if (error) error.hidden = true;
   });
+  app.addEventListener('input', event => {
+    if (!['pre','post'].includes(study.phase) || !event.target.matches('[data-test-text]')) return;
+    studyModel.saveDraft(study,tests,study.phase,event.target.dataset.testText,event.target.value);
+    persist();
+  });
   app.addEventListener('submit', event => {
+    if (event.target.id === 'test-form' && ['pre','post'].includes(study.phase)) {
+      event.preventDefault();
+      const q = tests[study.phase].questions[study.testPosition];
+      if (q.type === 'single' && !Number.isInteger(study.tests[study.phase].drafts[q.id])) {
+        const error = document.getElementById('answer-error'); error.hidden = false; error.textContent = 'Choose an answer before continuing.';
+        app.querySelector('input[name=test-answer]')?.focus(); return;
+      }
+      changeTestPosition(study.testPosition+1); return;
+    }
+    if (study.phase !== 'practice') return;
     if (event.target.id !== 'answer-form') return;
     event.preventDefault();
     const q = content.questions[state.position-1];
@@ -616,16 +1447,26 @@ if (typeof module !== 'undefined' && module.exports) module.exports = PilotState
   });
   app.addEventListener('click', event => {
     const button = event.target.closest('button'); if (!button || button.disabled) return;
+    if (button.dataset.testGo !== undefined) { changeTestPosition(Number(button.dataset.testGo)); return; }
     if (button.dataset.go !== undefined) { navigate(Number(button.dataset.go)); return; }
     const action = button.dataset.action;
+    if (action === 'review-practice' && study.phase === 'complete') { reviewingPractice = true; navigate(content.questions.length+1); }
+    if (action === 'return-results' && study.phase === 'complete') { reviewingPractice = false; render('page-title'); window.scrollTo({top:0,behavior:'instant'}); }
+    if (action === 'start-study') changePhase('pre');
+    if (action === 'start-post') changePhase('post');
+    if (action === 'submit-test' && ['pre','post'].includes(study.phase)) {
+      flush();
+      if (!studyModel.submitTest(study,tests,study.phase)) return;
+      persist(); render('page-title'); window.scrollTo({top:0,behavior:'instant'});
+    }
     if (action === 'begin') navigate(model.reachable(state,content));
     if (action === 'csv' || action === 'json') download(action);
     if (action === 'reset') {
       if (!window.confirm('Start a new session? This clears the answers saved in this browser. Save the current session first if you want to keep it.')) return;
-      state = model.create(content); drafts = {}; segmentStart = performance.now(); persist(); render('page-title'); window.scrollTo(0,0);
+      study = studyModel.create(content,tests); state = study.module; drafts = {}; reviewingPractice = false; segmentStart = performance.now(); persist(); render('page-title'); window.scrollTo(0,0);
     }
   });
-  document.addEventListener('visibilitychange', () => { flush(); active = !document.hidden; persist(); });
+  document.addEventListener('visibilitychange', () => { flush(); active = !document.hidden && document.hasFocus(); persist(); });
   window.addEventListener('blur', () => { flush(); active = false; persist(); });
   window.addEventListener('focus', () => { segmentStart = performance.now(); active = !document.hidden; });
   window.addEventListener('pagehide', () => { flush(); persist(); });
