@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A question-based practice module for reading, checking, and working with AI-written Python code.">
+  <meta name="color-scheme" content="light">
+  <title>Programming with AI · Practice</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%239d2434'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='monospace' font-size='35' fill='white'%3E%26lt;%26gt;%3C/text%3E%3C/svg%3E">
+  <style>:root{--ink:#202936;--muted:#536172;--paper:#fff;--canvas:#f3f5f7;--line:#d8dfe5;--red:#9d2434;--red-dark:#7e1c29;--red-light:#f8e9ec;--code:#17212e;--green:#166448;--green-light:#eef8f2;--amber:#845019;--amber-light:#fff6e8;--radius:12px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--canvas);font-size:16px;line-height:1.6}
+*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button,a,input,select,summary{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:default}a{color:var(--red)}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #2767b0;outline-offset:4px}button{touch-action:manipulation}h1,h2,h3,p{margin-top:0}h1,h2,h3{line-height:1.22}h1{font-size:clamp(1.8rem,3.2vw,2.7rem);letter-spacing:-.04em;font-weight:680;margin-bottom:16px}h2{font-size:1.4rem;letter-spacing:-.025em}h3{font-size:1.08rem;margin-bottom:8px}p{margin-bottom:16px}small{font-size:.875rem}code{font-family:"Cascadia Code","SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.92em}p code,li code{background:#e8edf1;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}button svg{width:18px;height:18px}svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.skip-link{position:fixed;left:16px;top:-80px;background:white;padding:12px;z-index:10}.skip-link:focus{top:12px}.topbar{height:80px;border-top:4px solid var(--red);border-bottom:1px solid var(--line);background:white;display:flex;align-items:center;justify-content:space-between;padding:0 36px;gap:16px}.brand{display:flex;align-items:center;gap:14px}.brand-mark{display:grid;place-items:center;background:var(--red);color:white;border-radius:6px;width:38px;height:38px;font-family:Consolas,monospace;font-weight:700;font-size:19px}.brand strong{font-size:1rem;font-weight:650}.brand small{display:block;color:var(--muted);font-size:.8125rem;line-height:1.35}.top-meta{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:.875rem}.top-meta .dot{width:5px;height:5px;border-radius:50%;background:#9aa7b2}.layout{display:grid;grid-template-columns:236px minmax(0,1fr);max-width:1600px;margin:auto;min-height:calc(100vh - 80px)}.sidebar{border-right:1px solid var(--line);padding:36px 22px;display:flex;flex-direction:column;gap:30px}.side-label,.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:750;color:var(--muted)}.side-label{margin:0 12px 18px}.stage-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}.stage-button{border:0;background:none;padding:12px 10px;width:100%;display:flex;align-items:center;gap:12px;border-radius:8px;text-align:left;font-size:.875rem;font-weight:550;color:var(--muted)}.stage-button:hover:not(:disabled){background:#e8edf1}.stage-button:disabled{color:#65717d}.stage-button.current{background:var(--red-light);color:var(--red);font-weight:700}.stage-number{border:1px solid #9da9b5;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;font-size:.75rem;flex-shrink:0}.current .stage-number{border-color:var(--red);background:var(--red);color:white}.done .stage-number{border-color:var(--green);color:var(--green);background:var(--green-light)}.stage-number svg{width:15px;height:15px}.side-note{font-size:.875rem;color:var(--muted);border-top:1px solid var(--line);padding:22px 12px 0;margin-top:6px}.side-note strong{display:block;color:var(--ink);margin-bottom:6px;font-weight:600}.main{min-width:0;padding:32px 44px 36px}.progress-line{display:flex;align-items:center;gap:16px;font-size:.8125rem;color:var(--muted);margin-bottom:32px}.progress-line progress{appearance:none;border:0;width:150px;max-width:35%;height:5px;border-radius:4px;background:#dce2e8}.progress-line progress::-webkit-progress-bar{background:#dce2e8;border-radius:4px}.progress-line progress::-webkit-progress-value{background:var(--red);border-radius:4px}.progress-line progress::-moz-progress-bar{background:var(--red);border-radius:4px}.activity-header{max-width:900px;margin-bottom:28px}.eyebrow{color:var(--red);margin-bottom:12px}.lead{color:var(--muted);max-width:760px;font-size:1rem;margin-bottom:0}.activity-grid{display:grid;grid-template-columns:minmax(300px,.95fr) minmax(350px,1.05fr);gap:28px;align-items:start}.activity-grid.single-column{display:block;max-width:900px}.evidence{min-width:0;position:sticky;top:24px}.spec{background:white;border:1px solid var(--line);border-left:3px solid var(--red);padding:20px 22px;border-radius:0 8px 8px 0;margin-bottom:18px}.spec .label{font-size:.75rem;color:var(--muted);font-weight:750;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}.spec p{margin:0;font-size:.9375rem;line-height:1.7}.code-card{border-radius:var(--radius);background:var(--code);color:#edf2f6;overflow:hidden;margin-bottom:18px;border:1px solid #1c2a3b}.code-label{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;font-size:.75rem;color:#b7c4d3;border-bottom:1px solid #34404e;letter-spacing:.02em}.code-label .language{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:#aebdce}.code-card pre{margin:0;padding:20px 20px 22px;overflow-x:auto;tab-size:4;line-height:1.8;font-size:.875rem}.code-card code{font-size:inherit;white-space:pre}.token-keyword{color:#d4aff7}.token-string{color:#b5dfbd}.token-number{color:#f2cb8c}.token-comment{color:#a7b7c9}.reminder{font-size:.875rem;color:var(--muted);padding:0 2px}.reminder summary{cursor:pointer;font-weight:600;padding:6px 0}.reminder p{margin:8px 0 0;line-height:1.65}.answer-panel{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:26px;min-width:0}.question-kind{color:var(--muted);font-size:.8125rem;margin:0 0 12px}.question-title{font-size:1.22rem;font-weight:650;line-height:1.45;letter-spacing:-.02em;margin:0 0 12px;overflow-wrap:anywhere}.instruction{font-size:.875rem;color:var(--muted);margin-bottom:20px}.choices{border:0;padding:0;margin:20px 0 0;min-width:0}.choice{display:flex;align-items:flex-start;gap:12px;padding:14px 15px;border:1px solid var(--line);border-radius:8px;margin-bottom:10px;cursor:pointer;line-height:1.55;font-size:.9375rem;transition:border-color .12s,background .12s;overflow-wrap:anywhere}.choice:hover{background:#f7f8fa;border-color:#a6b0bc}.choice.selected{border-color:var(--red);background:#fbf2f4;box-shadow:inset 0 0 0 1px var(--red)}.choice input{appearance:none;flex:0 0 18px;width:18px;height:18px;border:1.5px solid #8693a1;border-radius:50%;margin:3px 0 0;position:relative;background:white;opacity:1}.choice input[type=checkbox]{border-radius:4px}.choice input:checked{background:var(--red);border-color:var(--red);box-shadow:inset 0 0 0 4px white}.choice input[type=checkbox]:checked{box-shadow:none}.choice input[type=checkbox]:checked:after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid white;border-width:0 2px 2px 0;transform:rotate(45deg)}.choice.good{border-color:#4d9b77;background:var(--green-light);box-shadow:none}.choice.missed{border-color:#b4833f;background:var(--amber-light);box-shadow:none}.choices:disabled .choice{cursor:default}.choices:disabled .choice:hover{background:inherit}.choices:disabled .choice.good:hover{background:var(--green-light)}.choices:disabled .choice.missed:hover{background:var(--amber-light)}.choice-body{flex:1;min-width:0}.choice-status{display:block;font-size:.8125rem;font-weight:650;margin-top:6px;color:var(--green)}.choice.missed .choice-status{color:var(--amber)}.action-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid transparent;border-radius:7px;padding:12px 18px;font-size:.9375rem;font-weight:650;line-height:1.4;text-decoration:none;min-height:46px}.btn.primary{background:var(--red);color:white}.btn.primary:hover{background:var(--red-dark)}.btn.secondary{background:white;color:var(--ink);border-color:#b7c2cd}.btn.secondary:hover{background:#f1f4f6}.btn.quiet{color:var(--muted);background:transparent;padding-left:0;padding-right:0}.btn.quiet:hover{color:var(--ink)}.btn:disabled{opacity:.45}.error{font-size:.875rem;color:#9d2434;font-weight:600;margin:12px 0 0}.feedback{margin-top:24px;padding-top:24px;border-top:1px solid var(--line);scroll-margin-top:24px}.feedback:focus,.main h1:focus{outline:none}.feedback-label{display:flex;align-items:center;gap:8px;font-size:.875rem;font-weight:700;color:var(--green);margin-bottom:12px}.feedback-label svg{width:19px;height:19px}.feedback-label.revisit{color:var(--amber)}.feedback h3{font-size:1.05rem;line-height:1.5}.feedback p{font-size:.9375rem;line-height:1.75;color:#3d4c5e}.feedback .selected-explanation{background:#f3f5f7;padding:14px 16px;border-radius:6px}.extra-feedback{font-size:.875rem;color:var(--muted);margin:16px 0}.extra-feedback summary{cursor:pointer;color:var(--ink);padding:8px 0;font-weight:600}.extra-feedback ul{padding-left:20px}.extra-feedback li{margin:12px 0}.extra-feedback li strong{display:block;color:var(--ink);font-weight:600}.worked-steps{list-style:none;padding:0;margin:20px 0}.worked-steps li{border-left:2px solid var(--line);padding:0 0 18px 16px;font-size:.9375rem}.worked-steps strong{display:block;margin-bottom:5px;color:var(--ink)}.recorded{border:1px solid var(--line);border-radius:8px;padding:16px;margin:18px 0;background:#f8fafb}.recorded h4{font-size:.875rem;margin:0 0 6px}.recorded .caption{font-size:.8125rem;color:var(--muted);margin-bottom:14px}.test-row{font-size:.875rem;border-top:1px solid var(--line);padding:12px 0}.test-row:last-child{padding-bottom:0}.test-row code{display:block;overflow-wrap:anywhere;white-space:pre-wrap;font-size:.8125rem;line-height:1.65}.test-result{display:block;font-weight:600;margin-top:6px;color:var(--green)}.test-result.fail{color:var(--amber)}.sort-list{display:flex;flex-direction:column;gap:10px;margin-top:24px}.sort-row{display:grid;grid-template-columns:minmax(0,1fr) 225px;gap:16px;border:1px solid var(--line);border-radius:8px;padding:16px;align-items:center}.sort-row label{font-size:.9375rem;line-height:1.6}.fragment-number{color:var(--muted);font-size:.8125rem;margin-right:7px}.sort-row select{width:100%;border:1px solid #9aa7b3;border-radius:6px;padding:10px;background:white;color:var(--ink);font-size:.875rem;min-height:44px}.sort-row select:disabled{opacity:1;color:var(--ink);background:#f4f6f8}.sort-result{grid-column:1 / -1;font-size:.875rem;line-height:1.6;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}.sort-result strong{color:var(--green);display:block}.sort-row.missed .sort-result strong{color:var(--amber)}.sort-row.good{border-left:3px solid var(--green)}.sort-row.missed{border-left:3px solid #b4833f}.assembled{padding:18px;border-left:3px solid var(--red);background:#f8f3f4;margin:18px 0;font-size:.9375rem;line-height:1.8}.intro{max-width:980px}.intro-meta{font-size:.875rem;color:var(--muted);display:flex;gap:18px;margin:0 0 22px}.intro h1{font-size:clamp(2.2rem,4vw,3.35rem);max-width:700px}.intro .lead{max-width:700px;font-size:1.0625rem;line-height:1.75}.intro-content{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;margin-top:32px}.rules{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:6px 26px}.rule{display:flex;gap:20px;padding:23px 0;border-bottom:1px solid var(--line)}.rule:last-child{border:0}.rule-index{font-family:Consolas,monospace;color:var(--red);font-size:1.15rem;padding-top:1px}.rule h2{font-size:1.05rem;margin:0 0 6px;letter-spacing:0}.rule p{font-size:.9375rem;color:var(--muted);margin:0;line-height:1.65}.intro-aside{padding:24px 4px}.intro-aside h2{font-size:1.05rem;margin-bottom:16px}.intro-aside ul{padding-left:20px;color:var(--muted);font-size:.9375rem;margin-bottom:22px}.intro-aside li{padding-left:4px;margin-bottom:12px}.intro-note{border-top:1px solid var(--line);padding-top:18px;font-size:.875rem;color:var(--muted)}.intro-actions{display:flex;gap:20px;align-items:center;margin-top:26px;flex-wrap:wrap}.intro-actions small{color:var(--muted)}.footer{margin-top:34px;display:flex;justify-content:space-between;gap:14px;color:var(--muted);font-size:.75rem;border-top:1px solid var(--line);padding-top:18px}.storage-warning{padding:12px 16px;background:var(--amber-light);color:var(--amber);font-size:.875rem;border-radius:8px;margin-bottom:20px}.closing{max-width:950px}.closing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:28px 0}.score-card{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:28px}.score-value{font-size:3.25rem;font-weight:680;letter-spacing:-.07em;color:var(--red);line-height:1.2;margin-bottom:12px}.score-value span{font-size:1.4rem;color:var(--muted);letter-spacing:0;font-weight:450}.score-card p{font-size:.9375rem;color:var(--muted);margin:0}.closing-rules{margin:0;padding-left:20px;color:var(--muted);font-size:.9375rem}.closing-rules li{margin:0 0 12px}.closing-rules strong{color:var(--ink)}.review-list{list-style:none;padding:0;margin:20px 0}.review-item{display:flex;align-items:center;gap:14px;width:100%;text-align:left;border:0;border-top:1px solid var(--line);padding:16px 4px;background:transparent;color:var(--ink);font-size:.9375rem}.review-item:hover{background:#e9edf1}.review-icon{width:26px;height:26px;background:var(--green-light);color:var(--green);border-radius:50%;display:grid;place-items:center;flex-shrink:0}.review-icon svg{width:16px;height:16px}.review-icon.revisit{background:var(--amber-light);color:var(--amber)}.review-item .review-text{flex:1}.review-item small{display:block;color:var(--muted);font-size:.8125rem}.review-item .arrow{color:var(--muted)}.download-actions{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 12px}.session-tools{border-top:1px solid var(--line);margin-top:32px;padding-top:20px}.session-tools p{font-size:.875rem;color:var(--muted);margin-bottom:12px}.new-session{font-size:.875rem;text-decoration:underline;text-underline-offset:4px;background:none;border:0;padding:8px 0;color:var(--muted)}.noscript{max-width:650px;padding:40px;margin:auto}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(min-width:1500px){.main{padding:38px 54px}.activity-grid{gap:34px}}
+@media(max-width:1180px){.layout{grid-template-columns:205px minmax(0,1fr)}.main{padding:28px}.sidebar{padding:30px 14px}.activity-grid{grid-template-columns:1fr}.evidence{position:static}.code-card pre{font-size:.9375rem}.answer-panel{padding:24px}.intro-content{grid-template-columns:1fr}.intro-aside{padding:0 6px}.intro-aside ul{margin-bottom:18px}}
+@media(max-width:760px){.topbar{height:72px;padding:0 20px}.top-meta{font-size:.75rem}.top-meta .dot,.top-meta .course{display:none}.layout{display:block}.sidebar{border:0;padding:18px 20px 0;gap:0}.side-label,.side-note{display:none}.stage-list{flex-direction:row;gap:6px}.stage-list li{flex:1;min-width:0}.stage-button{justify-content:center;padding:8px 0}.stage-button .stage-name{display:none}.stage-number{width:29px;height:29px}.main{padding:22px 20px 28px}.progress-line{margin-bottom:25px}.activity-header{margin-bottom:22px}h1{font-size:2rem}.answer-panel{padding:20px}.activity-grid{gap:6px}.sort-row{grid-template-columns:1fr;gap:12px}.sort-row select{width:100%}.closing-grid{grid-template-columns:1fr}.intro h1{font-size:2.5rem}.intro-content{margin-top:24px;gap:22px}.rules{padding:4px 20px}.rule{padding:20px 0;gap:16px}.intro-actions{gap:12px}.intro-actions small{width:100%}.code-card pre{padding:18px 16px;font-size:.875rem}.footer{flex-wrap:wrap}.choice{padding:13px 12px}.score-value{font-size:2.8rem}.action-row{gap:10px}.action-row .btn{padding:11px 14px}.download-actions .btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media(forced-colors:active){.choice input,.choice input:checked{appearance:auto;background:Canvas;box-shadow:none;border-color:ButtonText}.choice input[type=checkbox]:checked:after{content:none}.choice.selected{outline:2px solid Highlight;box-shadow:none}.choice.good,.choice.missed{border-style:double}.btn.primary{border-color:ButtonText}.stage-button.current{outline:2px solid Highlight}.code-card{border-color:CanvasText}}
+@media print{.sidebar,.topbar,.action-row,.download-actions,.session-tools,.footer,.skip-link{display:none}.layout{display:block}.main{padding:0}.code-card{break-inside:avoid}.activity-grid{display:block}.evidence{position:static}.answer-panel{border:0}.code-card pre{white-space:pre-wrap}.choice,.sort-row{break-inside:avoid}}
+
+/* A compact reading layout and feedback tied to the code. */
+.topbar { height:72px; }
+.layout { min-height:calc(100vh - 72px); }
+.main { padding:26px 34px 32px; }
+.progress-line { margin-bottom:22px; }
+.activity-header { margin-bottom:22px; }
+.activity-header h1 { font-size:clamp(1.8rem,2.6vw,2.3rem); margin-bottom:12px; }
+.activity-grid { gap:24px; }
+.code-card pre { padding:16px 0; font-size:.9375rem; }
+.code-line { position:relative; display:inline-block; min-width:100%; padding:0 16px 0 42px; vertical-align:top; }
+.code-line-number { position:absolute; left:0; width:28px; color:#a7b7c9; text-align:right; user-select:none; }
+.code-line-number::before { content:attr(data-line); }
+.code-line.focus-line { background:#2c3c4d; box-shadow:inset 3px 0 #a4c7e5; }
+.choice.selected:not(.good):not(.missed) { border-color:#335d86; background:#eef3f9; box-shadow:inset 0 0 0 1px #335d86; }
+.choice input:checked { background:#335d86; border-color:#335d86; }
+.choice.good input:checked { background:var(--green); border-color:var(--green); }
+.choice.missed input:checked { background:var(--amber); border-color:var(--amber); }
+.review-steps { display:flex; flex-wrap:wrap; gap:12px 22px; margin:18px 0 0; padding:0; list-style:none; font-size:.875rem; color:var(--muted); }
+.review-steps li { display:flex; align-items:center; gap:7px; }
+.review-steps li > span { display:grid; place-items:center; width:22px; height:22px; border:1px solid currentColor; border-radius:50%; font-size:.75rem; }
+.review-steps .current { color:var(--red); font-weight:700; }
+.review-steps .current > span { background:var(--red); color:white; border-color:var(--red); }
+.review-steps .done { color:var(--ink); }
+.feedback-comparison { display:grid; grid-template-columns:1fr 1fr; gap:16px; background:#f0f4f8; border-radius:6px; padding:14px 16px; margin:16px 0; }
+.feedback-comparison span { display:block; font-size:.875rem; color:var(--muted); margin-bottom:4px; }
+.feedback-comparison code { font-size:1rem; white-space:pre-wrap; overflow-wrap:anywhere; }
+.feedback .line-reference { padding-left:12px; border-left:3px solid #668caa; }
+.closing-lessons { margin:28px 0; }
+.closing .score-summary { color:var(--muted); font-size:.9375rem; margin:20px 0 0; }
+.score-summary strong { color:var(--ink); }
+@media(max-width:1280px) {
+  .layout { display:block; }
+  .sidebar { border-right:0; border-bottom:1px solid var(--line); padding:12px 28px; }
+  .side-label,.side-note { display:none; }
+  .stage-list { flex-direction:row; gap:6px; }
+  .stage-list li { flex:1; min-width:0; }
+  .stage-button { justify-content:center; gap:8px; padding:8px 6px; }
+  .activity-grid { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .evidence { position:sticky; top:20px; }
+}
+@media(max-width:880px) {
+  .activity-grid { grid-template-columns:1fr; }
+  .evidence { position:static; }
+  .main { padding:24px; }
+}
+@media(max-width:760px) {
+  .sidebar { padding:10px 16px; }
+  .main { padding:22px 20px 28px; }
+  .activity-grid { gap:6px; }
+  .review-steps { gap:10px 14px; }
+}
+@media(max-width:380px) {
+  .feedback-comparison { grid-template-columns:1fr; gap:10px; }
+}
+@media(forced-colors:active) {
+  .choice input,.choice input:checked,.choice.good input:checked,.choice.missed input:checked { appearance:auto; background:Canvas; border-color:ButtonText; box-shadow:none; }
+  .choice.selected:not(.good):not(.missed) { outline:2px solid Highlight; box-shadow:none; }
+  .code-line.focus-line { outline:2px solid Highlight; outline-offset:-2px; box-shadow:none; }
+  .review-steps .current > span { background:Highlight; color:HighlightText; }
+}
+@media print {
+  .sidebar { display:none; }
+  .main { padding:0; }
+  .activity-grid { display:block; }
+  .evidence { position:static; }
+}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to activity</a>
+  <div id="app"></div>
+  <noscript><main class="noscript"><h1>Programming with AI</h1><p>This activity needs JavaScript enabled to check answers and show feedback. Open this HTML file in a browser with JavaScript enabled.</p></main></noscript>
+  <script>/* Editable question content. build.mjs embeds this in the standalone HTML. */
+const MODULE = {
+  version: '1.0.0',
+  title: 'Programming with AI',
+  sections: ['Orientation', 'Be specific', 'Build a prompt', 'Review together', 'Your review', 'Wrap-up'],
+  codes: {
+    average1: 'grades = [90, 85, 77]\naverage = sum(grades) / len(grades)\nprint("Your average is", average)',
+    average2: 'def calculateAverage(grades):\n    total = 0\n    for grade in grades:\n        total = total + grade\n    return total / len(grades)\n\nprint(calculateAverage([95, 88, 72]))',
+    multiples: 'def multiplesOf11(start, end):\n    result = []\n    for n in range(start, end):\n        if n % 11 == 0:\n            result.append(n)\n    return result',
+    yes: 'def countYes(answers):\n    count = 0\n    for a in answers:\n        if a == "yes":\n            count = count + 1\n    return count',
+    yesFixed: 'def countYes(answers):\n    count = 0\n    for a in answers:\n        if a.lower() == "yes":\n            count = count + 1\n    return count',
+    first: 'def firstLetters(words):\n    for i in range(len(words)):\n        words[i] = words[i][0]\n    return words',
+    firstFixed: 'def firstLetters(words):\n    result = []\n    for w in words:\n        result.append(w[0])\n    return result',
+    sum: 'def sumTo(n):\n    total = 0\n    for i in range(1, n + 1):\n        total = total + i\n    return total',
+    has: 'def hasWord(sentence, word):\n    for w in sentence:\n        if w == word:\n            return True\n    return False',
+    hasFixed: 'def hasWord(sentence, word):\n    for w in sentence:\n        if w.lower() == word.lower():\n            return True\n    return False'
+  },
+  questions: [
+    {
+      id: 'S2Q1', section: 1, type: 'single', scored: true,
+      title: 'One prompt, two programs',
+      context: 'An AI was given the same prompt twice. Here are the two recorded responses.',
+      spec: 'Write a program that calculates the average of my grades.',
+      codeKeys: ['average1', 'average2'], codeLabels: ['Run 1', 'Run 2'],
+      question: 'Why can this prompt lead to these two different programs?',
+      options: [
+        'The AI is not very good at writing code.',
+        'The prompt contained a syntax error.',
+        'The prompt left details open, so each response could make different choices.',
+        'Running Python changes the program into a different program.'
+      ], answer: 2,
+      takeaway: 'A prompt can specify the goal while leaving important choices open.',
+      explanation: 'Both examples calculate a mean. The prompt does not say whether to use a function, return a value, or use a loop. Generated responses can vary; missing requirements leave room for different behavior.',
+      feedback: [
+        'Both examples calculate a mean for their non-empty example lists. Different structure alone does not show that either program is incorrect.',
+        'This is an English request, not Python code. A Python syntax error would prevent execution; it does not explain these two implementations.',
+        'Yes. The task is specified, but many details of the implementation and interface are not.',
+        'These simple Python programs give the same result when rerun with the same inputs. The variation here happened when the AI generated the code.'
+      ]
+    },
+    {
+      id: 'S2Q2', section: 1, type: 'multi', scored: false,
+      title: 'Find the missing decisions', context: 'Look at what the prompt actually specifies, rather than what its author may have intended.',
+      spec: 'Write a program that calculates the average of my grades.',
+      codeKeys: ['average1', 'average2'], codeLabels: ['Run 1', 'Run 2'],
+      question: 'Which decisions did the prompt leave open?', instruction: 'Select all that apply.',
+      options: [
+        'Where grades come from: a list in the code, user input, or a file',
+        'Whether to write a function or a stand-alone script',
+        'Whether the requested result is an average or a total',
+        'Whether the calculation returns a value or prints it',
+        'Whether to use sum() or a loop',
+        'Which programming language to use'
+      ], answer: [0, 1, 3, 4, 5],
+      takeaway: 'The prompt asks for an average. The other five decisions are open.',
+      explanation: 'Run 1 prints the mean directly. Run 2 puts the calculation in a function that returns the mean, then prints that returned value. Both use a list written into the code and both use Python, although neither choice was required. Both also divide by zero on an empty list.',
+      feedback: [
+        'No source for the grades is specified.',
+        '“Program” does not specify a function interface.',
+        '“Average” is explicitly requested. A total alone would not meet that request.',
+        'The prompt does not specify how the calculation should deliver its result.',
+        'No implementation method is required.',
+        'The prompt never names Python or any other language.'
+      ]
+    },
+    {
+      id: 'S2Q3', section: 1, type: 'single', scored: true,
+      title: 'Make the requirements checkable',
+      context: 'A useful prompt gives you a clear basis for reviewing the response.',
+      question: 'Which prompt makes the intended behavior clearest and easiest to verify?',
+      options: [
+        'Write a better version of the average program.',
+        'Write a program that calculates the average of my grades, and make sure it is correct.',
+        'Write a Python function that calculates the average of my grades. Be very careful and do not make any assumptions.',
+        'Write a Python function called averageGrade(grades). It takes a list of numbers and returns their mean as a float. If the list is empty, return 0.0. Example: averageGrade([90, 85, 77]) returns 84.0.'
+      ], answer: 3,
+      takeaway: 'Specific requirements make a response easier to check. They do not guarantee correct code.',
+      explanation: 'The last prompt names the function, describes the input and output, handles an empty list, and gives an example. Generated code can still vary or contain mistakes. Read it and test it against those requirements.',
+      feedback: [
+        '“Better” does not identify which behavior should change or what result to expect.',
+        '“Correct” needs a specification: what inputs, outputs, and edge cases should the code handle?',
+        'Asking for care does not resolve the missing requirements. The empty-list behavior and expected interface are still unclear.',
+        'This prompt provides concrete requirements and an expected answer you can turn into a test.'
+      ]
+    },
+    {
+      id: 'S3Q1', section: 2, type: 'sort', scored: false,
+      title: 'Build a specific prompt',
+      context: 'You want a function that counts how many words in a list start with a given letter, ignoring case.',
+      question: 'Where does each prompt fragment belong?',
+      instruction: 'Choose a category for every fragment. Use “Leave it out” for pieces that do not add a clear requirement.',
+      slots: ['Name & signature', 'Inputs', 'Output', 'Constraints & edge cases', 'Example', 'Leave it out'],
+      fragments: [
+        ['Write a Python function called countStartingWith(words, letter).', 0, 'Names the function and its two parameters.'],
+        ['Make it fast and efficient.', 5, 'No performance target or input size is given, so this adds no checkable requirement.'],
+        ['The comparison is case-insensitive: "Apple" counts as starting with "a".', 3, 'Defines how matching should work.'],
+        ['words is a list of non-empty strings; letter is a single alphabetic character.', 1, 'Defines the inputs. Non-empty strings make the first-character operation well-defined.'],
+        ['Use your best judgment for anything I have not mentioned.', 5, 'This leaves unspecified decisions with the model. State the decisions that matter to your task.'],
+        ['Return an integer: how many words in words start with letter.', 2, 'Defines the returned value and its type.'],
+        ['Do not modify the input list.', 3, 'Constrains side effects.'],
+        ['Write a function that counts words.', 5, 'This is a vague, redundant description. It does not clearly specify which words to count.'],
+        ['Example: countStartingWith(["Apple", "banana", "avocado"], "a") returns 2.', 4, 'Gives a concrete input and expected output.'],
+        ['If words is empty, return 0.', 3, 'Defines the empty-list behavior.']
+      ],
+      takeaway: 'A good specification connects inputs, outputs, constraints, and an example.',
+      explanation: 'It is fine to ask for efficiency when you can describe a useful target. Here, the essential task is to make the function’s behavior explicit.',
+      assembled: 'Write a Python function called countStartingWith(words, letter). words is a list of non-empty strings; letter is a single alphabetic character. Return an integer: how many words in words start with letter. Matching is case-insensitive. Do not modify the input list. If words is empty, return 0. Example: countStartingWith(["Apple", "banana", "avocado"], "a") returns 2.'
+    },
+    {
+      id: 'S4AQ1', section: 3, type: 'single', scored: true,
+      title: 'Trace before you judge', eyebrow: 'Review 1 of 2 · Worked example',
+      context: 'Assume start and end are integers. The classmate intended to include both endpoints and return an empty list if start is greater than end. Their prompt left those details out.',
+      spec: 'Write a function multiplesOf11(start, end) that finds all multiples of 11 between start and end.',
+      codeKeys: ['multiples'], reminder: 'range(a, b) stops before b. Trace the code as written.',
+      reviewStep: 0, focusLine: 3, traceResult: '[11, 22]',
+      lineNote: 'range(1, 33) stops at 32, so 33 is never checked.',
+      question: 'What does multiplesOf11(1, 33) actually return?',
+      options: ['[11, 22, 33]', '[11, 22]', '[]', '[0, 11, 22, 33]'], codeOptions: true, answer: 1,
+      takeaway: 'The result is [11, 22]. The endpoint 33 is never checked.',
+      explanation: 'range(1, 33) visits the integers from 1 through 32. This misses the classmate’s intended inclusive endpoint, although the original prompt was ambiguous.',
+      feedback: [
+        '33 is a multiple of 11, but range(1, 33) stops at 32.',
+        'Both 11 and 22 are visited and added to result. 33 is not visited.',
+        'The range includes 11 and 22, and both pass n % 11 == 0.',
+        'The range starts at 1, so it does not include 0. It also stops before 33.'
+      ], worked: true
+    },
+    {
+      id: 'S4BQ1', section: 3, type: 'single', scored: true,
+      title: 'Read the comparison', eyebrow: 'Review 2 of 2 · Step 1: Trace',
+      context: 'answers is a list of strings typed by people. The classmate wants "yes", "Yes", and "YES" all to count.',
+      spec: 'Write a function countYes(answers) that counts how many answers in a list are yes.',
+      codeKeys: ['yes'], reminder: 'String equality is case-sensitive: "Yes" == "yes" is False.',
+      reviewStep: 0, focusLine: 4, traceResult: '1',
+      lineNote: 'Only the exact lowercase string "yes" matches this comparison.',
+      question: 'What does countYes(["yes", "Yes", "no", "YES"]) actually return?',
+      options: ['3', '1', '2', '0'], codeOptions: true, answer: 1,
+      takeaway: 'The code returns 1. Only the lowercase "yes" matches.',
+      explanation: 'The loop visits all four answers. Exact string equality counts the first answer, but not "Yes" or "YES".',
+      feedback: [
+        '3 is the classmate’s intended count. The code’s exact comparison counts only the lowercase spelling.',
+        'Only the first answer equals the exact string "yes".',
+        'There is one exact match: the first answer. The two capitalized versions do not match.',
+        'The first answer is exactly "yes", so count increases once.'
+      ]
+    },
+    {
+      id: 'S4BQ2', section: 3, type: 'single', scored: true,
+      title: 'Diagnose the mismatch', eyebrow: 'Review 2 of 2 · Step 2: Diagnose',
+      context: 'The classmate wants "yes", "Yes", and "YES" all to count. The trace returned 1 instead of the intended 3.',
+      spec: 'Write a function countYes(answers) that counts how many answers in a list are yes.',
+      codeKeys: ['yes'], question: 'Why does this code miss the intended behavior?',
+      reviewStep: 1, focusLine: 4,
+      lineNote: 'The comparison treats uppercase and lowercase letters as different.',
+      options: ['count should start at 1, not 0.', 'The loop skips the first answer.', 'There is no mismatch with the classmate’s intended behavior.', 'The comparison is case-sensitive, so "Yes" and "YES" are not counted.'], answer: 3,
+      takeaway: 'The exact comparison misses the intended case-insensitive matching.',
+      explanation: 'The prompt never defined which spellings count as yes. The code’s behavior is consistent with a narrow reading of the prompt, but it misses the stated intent.',
+      feedback: [
+        'Starting at 1 would add an extra answer even for an empty list. It would not repair the comparison.',
+        'A for loop over this list visits every element, including the first.',
+        'The intended behavior counts three spellings. This implementation counts just the exact lowercase spelling.',
+        'Yes. The comparison needs to account for case to match the classmate’s intent.'
+      ]
+    },
+    {
+      id: 'S4BQ3', section: 3, type: 'single', scored: true,
+      title: 'Choose a revealing test', eyebrow: 'Review 2 of 2 · Step 3: Verify',
+      context: 'A useful test has an expected answer you know independently. Choose a test that exposes this specific mismatch.',
+      codeKeys: ['yes'], question: 'Which check would catch the case-sensitivity problem?',
+      reviewStep: 2, focusLine: 4,
+      lineNote: 'A mixed-case input exposes the exact comparison used here.',
+      options: ['assert countYes(["yes", "Yes", "YES"]) == 3', 'assert countYes(["yes", "yes"]) == 2', 'assert countYes([]) == 0', 'Ask the AI whether its code handles capital letters.'], answer: 0,
+      takeaway: 'A mixed-case test exposes the mismatch. Passing other tests does not rule it out.',
+      explanation: 'assert checks whether a condition is True. This mixed-case assertion fails because the actual result is 1 and the expected result is 3. A failed test can be useful evidence.',
+      feedback: [
+        'This input exercises the missing behavior and has a clear expected result.',
+        'This test passes: the code correctly counts two lowercase answers. It does not test capitalization.',
+        'This test passes: the empty list produces 0. It does not test capitalization.',
+        'A model’s statement about its code is not an execution result. Compare actual behavior with an independently chosen expected answer.'
+      ], recordedTests: true
+    },
+    {
+      id: 'S4BQ4', section: 3, type: 'single', scored: true,
+      title: 'Repair the specification', eyebrow: 'Review 2 of 2 · Step 4: Trace it back',
+      context: 'The test exposed a mismatch. Now make the intended matching rule explicit in the prompt.',
+      spec: 'Write a function countYes(answers) that counts how many answers in a list are yes.',
+      codeKeys: ['yes'], question: 'Which addition addresses the behavior that was missing?',
+      reviewStep: 3, focusLine: 4, fixedFocusLines: [4],
+      lineNote: 'The revised implementation below normalizes case before comparing.',
+      options: ['Return an integer.', 'Matching is case-insensitive: "yes", "Yes", and "YES" all count.', 'Name the counter variable count.', 'If the list is empty, return 0.'], answer: 1,
+      takeaway: 'State the case-insensitive rule, then check the revised code.',
+      explanation: 'Input and output types and empty-list behavior also belong in a full specification. This particular change resolves the missing matching rule. Here is a corrected implementation for a list of strings.',
+      feedback: [
+        'The current code already returns an integer. That requirement does not change which strings match.',
+        'This directly states which spellings should count.',
+        'The variable’s name does not affect which answers are counted.',
+        'This is useful to specify, but the current code already returns 0 for an empty list.'
+      ], fixedCode: 'yesFixed', fixedTests: true
+    },
+    {
+      id: 'S5Q1', section: 4, type: 'single', scored: true,
+      title: 'Check what else changes', eyebrow: 'Your review · 1 of 3',
+      context: 'This time the requirement is explicit. Decide whether the code meets it.',
+      spec: 'Write a function firstLetters(words). words is a list of non-empty strings. Return a new list containing the first letter of each word. Do not modify the input list.',
+      codeKeys: ['first'], question: 'Would you approve this code?',
+      focusLine: 3, fixedFocusLines: [2, 4],
+      lineNote: 'Assigning into words replaces an element in the caller’s list.',
+      options: ['Approve — it meets the specification.', 'Send back — it modifies the input list.', 'Send back — it returns the wrong type.', 'Send back — the loop has an off-by-one error.'], answer: 1,
+      takeaway: 'Send it back. The function overwrites the original list.',
+      explanation: 'words[i] = words[i][0] replaces each word in the caller’s list. Returning that same list also misses the requirement to return a new list. A separate result list avoids both problems.',
+      feedback: [
+        'The returned letters can look correct while the function changes data it was told to preserve.',
+        'Yes. Assigning into words changes the caller’s list.',
+        'The result is a list of strings, which is the requested type. The problem is mutation and reuse of the original list.',
+        'range(len(words)) covers all valid indices. The problem is the assignment inside the loop.'
+      ], fixedCode: 'firstFixed'
+    },
+    {
+      id: 'S5Q2', section: 4, type: 'single', scored: true,
+      title: 'Check the endpoint', eyebrow: 'Your review · 2 of 3',
+      context: 'Trace this implementation against its specification.',
+      spec: 'Write a function sumTo(n). n is a positive integer. Return the sum of all integers from 1 to n, inclusive. Example: sumTo(4) returns 10.',
+      codeKeys: ['sum'], question: 'Would you approve this code?',
+      focusLine: 3,
+      lineNote: 'Stopping before n + 1 correctly includes n.',
+      options: ['Approve — it meets the specification.', 'Send back — the loop stops before n.', 'Send back — total should start at 1.', 'Send back — it should use a while loop.'], answer: 0,
+      takeaway: 'Approve. range(1, n + 1) includes n.',
+      explanation: 'For n = 4, the loop adds 1, 2, 3, and 4 to get 10. For n = 1, it adds 1 once. The loop includes both required endpoints. Reviewing means recognizing correct code as well as finding mistakes.',
+      feedback: [
+        'Yes. The starting total and the range match the specification.',
+        'range stops before its second argument, which here is n + 1. That means n is included.',
+        'Starting at 1 would count an extra 1 and produce 11 for sumTo(4).',
+        'The specification does not require a loop type. This for loop produces the requested result.'
+      ]
+    },
+    {
+      id: 'S5Q3', section: 4, type: 'single', scored: true,
+      title: 'Check the matching rule', eyebrow: 'Your review · 3 of 3',
+      context: 'A clear prompt still needs a careful code review.',
+      spec: 'Write a function hasWord(sentence, word). sentence is a list of strings and word is a string. Return True if word appears in the list, ignoring case, and False otherwise.',
+      codeKeys: ['has'], question: 'Would you approve this code?',
+      focusLine: 3, fixedFocusLines: [3],
+      lineNote: 'Exact string equality does not meet the requirement to ignore case.',
+      options: ['Approve — it meets the specification.', 'Send back — it returns True before checking every word.', 'Send back — the comparison is case-sensitive.', 'Send back — it should return how many times the word appears.'], answer: 2,
+      takeaway: 'Send it back. The comparison does not ignore case.',
+      explanation: 'hasWord(["The", "cat"], "the") returns False, but the specification requires True. Converting both strings to lowercase before comparing handles this example.',
+      feedback: [
+        'The code runs, but a mixed-case input exposes a mismatch with the specification.',
+        'Once a match is found, returning True is correct. There is no need to inspect the remaining words.',
+        'Yes. w == word compares the strings exactly, including their capitalization.',
+        'The specification requests True or False, not a count.'
+      ], fixedCode: 'hasFixed'
+    }
+  ]
+};
+if (typeof module !== 'undefined' && module.exports) module.exports = MODULE;
+</script>
+  <script>/* Pure session logic, shared by the page and the automated checks. */
+const PilotState = (() => {
+  const clone = value => JSON.parse(JSON.stringify(value));
+  const date = () => new Date().toISOString();
+  function create(content) {
+    return { version: content.version, sessionId: 'pilot-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 6), startedAt: date(), completedAt: null, position: 0, responses: {}, timings: {} };
+  }
+  function validAnswer(q, value) {
+    if (q.type === 'single') return Number.isInteger(value) && value >= 0 && value < q.options.length;
+    if (q.type === 'multi') return Array.isArray(value) && value.length > 0 && new Set(value).size === value.length && value.every(v => Number.isInteger(v) && v >= 0 && v < q.options.length);
+    return Array.isArray(value) && value.length === q.fragments.length && value.every(v => Number.isInteger(v) && v >= 0 && v < q.slots.length);
+  }
+  function correct(q, value) {
+    if (!validAnswer(q, value)) return false;
+    if (q.type === 'single') return value === q.answer;
+    const expected = q.type === 'sort' ? q.fragments.map(f => f[1]) : q.answer;
+    const actual = q.type === 'multi' ? [...value].sort((a,b) => a-b) : value;
+    return JSON.stringify(actual) === JSON.stringify(expected);
+  }
+  function submit(state, q, answer) {
+    if (state.responses[q.id] || !validAnswer(q, answer)) return false;
+    state.responses[q.id] = { answer: clone(answer), correct: correct(q, answer), answeredAt: date() };
+    return true;
+  }
+  function reachable(state, content) {
+    const first = content.questions.findIndex(q => !state.responses[q.id]);
+    return first === -1 ? content.questions.length + 1 : first + 1;
+  }
+  function go(state, content, position) {
+    if (!Number.isInteger(position) || position < 0 || position > reachable(state, content)) return false;
+    state.position = position;
+    if (position === content.questions.length + 1 && !state.completedAt) state.completedAt = date();
+    return true;
+  }
+  function score(state, content) {
+    return content.questions.filter(q => q.scored && state.responses[q.id]?.correct).length;
+  }
+  function restore(raw, content) {
+    try {
+      const stored = JSON.parse(raw);
+      if (!stored || stored.version !== content.version || typeof stored.sessionId !== 'string' || stored.sessionId.length > 100 || !Number.isFinite(Date.parse(stored.startedAt))) return null;
+      const fresh = create(content);
+      fresh.sessionId = stored.sessionId; fresh.startedAt = stored.startedAt;
+      if (stored.completedAt && Number.isFinite(Date.parse(stored.completedAt))) fresh.completedAt = stored.completedAt;
+      let gap = false;
+      for (const q of content.questions) {
+        const response = stored.responses?.[q.id];
+        if (!response) { gap = true; continue; }
+        if (gap || !validAnswer(q, response.answer) || !Number.isFinite(Date.parse(response.answeredAt))) return null;
+        fresh.responses[q.id] = { answer: clone(response.answer), correct: correct(q, response.answer), answeredAt: response.answeredAt };
+      }
+      for (const [key, value] of Object.entries(stored.timings || {})) {
+        if (!['intro', 'closing', ...content.questions.map(q => q.id)].includes(key)) continue;
+        fresh.timings[key] = {};
+        for (const phase of ['questionMs', 'feedbackMs']) fresh.timings[key][phase] = Number.isFinite(value?.[phase]) && value[phase] >= 0 ? value[phase] : 0;
+      }
+      if (!Number.isInteger(stored.position) || !go(fresh, content, stored.position)) return null;
+      if (reachable(fresh, content) <= content.questions.length) fresh.completedAt = null;
+      return fresh;
+    } catch { return null; }
+  }
+  function answerText(q, value) {
+    if (value == null) return '';
+    if (q.type === 'single') return q.options[value];
+    if (q.type === 'multi') return value.map(i => q.options[i]).join(' | ');
+    return value.map((slot, i) => q.fragments[i][0] + ' → ' + q.slots[slot]).join(' | ');
+  }
+  function rows(state, content) {
+    return content.questions.map(q => {
+      const r = state.responses[q.id]; const timing = state.timings[q.id] || {};
+      return [state.sessionId, content.version, q.id, content.sections[q.section], q.question, q.scored ? 'yes' : 'no', answerText(q, r?.answer), r ? (r.correct ? 'yes' : 'no') : '', r?.answeredAt || '', ((timing.questionMs || 0)/1000).toFixed(1), ((timing.feedbackMs || 0)/1000).toFixed(1)];
+    });
+  }
+  function csv(state, content) {
+    const all = [['session_id', 'module_version', 'question_id', 'section', 'question', 'scored', 'first_answer', 'correct', 'answered_at', 'active_answer_seconds', 'active_feedback_seconds'], ...rows(state, content)];
+    return '\ufeff' + all.map(row => row.map(v => '"' + String(v).replace(/"/g, '""') + '"').join(',')).join('\r\n');
+  }
+  return { create, validAnswer, correct, submit, reachable, go, score, restore, answerText, rows, csv };
+})();
+if (typeof module !== 'undefined' && module.exports) module.exports = PilotState;
+</script>
+  <script>(() => {
+  'use strict';
+  const content = MODULE;
+  const model = PilotState;
+  const key = 'cmu-programming-ai-pilot-v1';
+  const app = document.getElementById('app');
+  const esc = text => String(text ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+  const icon = name => '<svg viewBox="0 0 24 24" aria-hidden="true">' + ({
+    check:'<path d="m5 12 4 4L19 6"/>', arrow:'<path d="M5 12h14m-6-6 6 6-6 6"/>', back:'<path d="M19 12H5m6-6-6 6 6 6"/>',
+    review:'<path d="M12 8v5m0 4h.01"/><circle cx="12" cy="12" r="9"/>', download:'<path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/>'
+  }[name] || '') + '</svg>';
+  let storageWarning = '';
+  let state;
+  try {
+    const raw = localStorage.getItem(key);
+    state = raw ? model.restore(raw, content) : null;
+    if (raw && !state) storageWarning = 'The previous saved session could not be restored. This is a new session.';
+  } catch { storageWarning = 'Progress cannot be saved in this browser. Keep this tab open; you can download your results at the end.'; }
+  state ||= model.create(content);
+  let drafts = {};
+  let segmentStart = performance.now();
+  let active = !document.hidden;
+
+  function persist() {
+    try { localStorage.setItem(key, JSON.stringify(state)); }
+    catch { storageWarning = 'Progress cannot be saved in this browser. Keep this tab open; you can download your results at the end.'; }
+    const notice = document.getElementById('storage-warning');
+    if (notice && storageWarning) { notice.hidden = false; notice.textContent = storageWarning; }
+  }
+  function timingKey() { return state.position === 0 ? 'intro' : state.position > content.questions.length ? 'closing' : content.questions[state.position-1].id; }
+  function flush() {
+    const now = performance.now();
+    if (active) {
+      const id = timingKey();
+      const phase = state.responses[id] ? 'feedbackMs' : 'questionMs';
+      state.timings[id] ||= { questionMs: 0, feedbackMs: 0 };
+      state.timings[id][phase] += Math.max(0, now - segmentStart);
+    }
+    segmentStart = now;
+  }
+  function navigate(position) {
+    flush();
+    if (!model.go(state, content, position)) return;
+    persist(); render('page-title'); window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+  function highlight(code) {
+    const regex = /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|#[^\n]*|\b(?:def|for|in|if|return|True|False|assert)\b|\b\d+\b/g;
+    let result = '', cursor = 0;
+    for (const match of code.matchAll(regex)) {
+      result += esc(code.slice(cursor, match.index));
+      const token = match[0];
+      const kind = /^['"]/.test(token) ? 'string' : token.startsWith('#') ? 'comment' : /^\d/.test(token) ? 'number' : 'keyword';
+      result += `<span class="token-${kind}">${esc(token)}</span>`;
+      cursor = match.index + token.length;
+    }
+    return result + esc(code.slice(cursor));
+  }
+  function codeBlock(code, label = 'Recorded AI response', focusLines = []) {
+    const lines = code.split('\n').map((line, i) => `<span class="code-line ${focusLines.includes(i+1)?'focus-line':''}"><span class="code-line-number" data-line="${i+1}" aria-hidden="true"></span>${highlight(line)}</span>`).join('\n');
+    const note = focusLines.length ? `; highlighted ${focusLines.length===1?'line':'lines'} ${focusLines.join(', ')}` : '';
+    return `<div class="code-card"><div class="code-label"><span>${esc(label)}</span><span class="language">Python</span></div><pre tabindex="0" aria-label="${esc(label+note)}"><code>${lines}</code></pre></div>`;
+  }
+  function reviewSteps(q) {
+    if (q.reviewStep == null) return '';
+    return `<ol class="review-steps" aria-label="Code review process">${['Trace','Diagnose','Verify','Refine'].map((label,i) => `<li class="${i===q.reviewStep?'current':i<q.reviewStep?'done':''}" ${i===q.reviewStep?'aria-current="step"':''}><span aria-hidden="true">${i+1}</span>${label}</li>`).join('')}</ol>`;
+  }
+  function specification(text) { return `<div class="spec"><div class="label">The prompt</div><p>${esc(text)}</p></div>`; }
+  function currentSection() { return state.position === 0 ? 0 : state.position > content.questions.length ? 5 : content.questions[state.position-1].section; }
+  function sectionPosition(section) { return section === 0 ? 0 : section === 5 ? content.questions.length+1 : content.questions.findIndex(q => q.section === section)+1; }
+  function sectionDone(section) {
+    if (section === 0) return model.reachable(state, content) > 1 || state.position > 0;
+    if (section === 5) return !!state.completedAt;
+    return content.questions.filter(q => q.section === section).every(q => state.responses[q.id]);
+  }
+  function sidebar() {
+    return `<aside class="sidebar"><nav aria-label="Practice sections"><p class="side-label">Your practice</p><ol class="stage-list">${content.sections.map((name, i) => {
+      const current = currentSection() === i, done = sectionDone(i), target = sectionPosition(i);
+      return `<li><button class="stage-button ${current?'current':''} ${done&&!current?'done':''}" data-go="${target}" ${target > model.reachable(state,content)?'disabled':''} ${current?'aria-current="step"':''} aria-label="${esc(name)}${done?', completed':''}"><span class="stage-number">${done&&!current?icon('check'):String(i+1).padStart(2,'0')}</span><span class="stage-name">${esc(name)}</span></button></li>`;
+    }).join('')}</ol></nav><div class="side-note"><strong>Make a choice. Read the feedback.</strong>Wrong answers are useful here. Take a moment to understand what the code does.</div></aside>`;
+  }
+  function ruleList() {
+    return `<div class="rules"><div class="rule"><span class="rule-index">01</span><div><h2>Be specific.</h2><p>Make the inputs, outputs, and requirements clear.</p></div></div><div class="rule"><span class="rule-index">02</span><div><h2>Read, trace, understand.</h2><p>Check what the code does, line by line.</p></div></div><div class="rule"><span class="rule-index">03</span><div><h2>Test, verify, iterate.</h2><p>Compare its behavior with an answer you already know.</p></div></div></div>`;
+  }
+  function intro() {
+    const started = Object.keys(state.responses).length > 0;
+    return `<section class="intro"><p class="eyebrow">15-110 · Practice</p><h1 id="page-title" tabindex="-1">Programming with AI</h1><div class="intro-meta"><span>About 20–25 minutes</span><span>12 activities</span></div><p class="lead">Practice making the decisions that matter when you work with AI-written code. Read the prompt, trace the Python, and decide what needs checking.</p><div class="intro-content">${ruleList()}<div class="intro-aside"><h2>What you’ll do</h2><ul><li>Find what a vague prompt leaves open.</li><li>Build a specific prompt from pieces.</li><li>Work through two guided code reviews.</li><li>Make three review decisions on your own.</li></ul><p class="intro-note">All AI responses and test results were recorded ahead of time. You do not need an AI tool open—please don’t use one during this practice.</p></div></div><div class="intro-actions"><button class="btn primary" data-action="begin">${started?'Resume practice':'Begin practice'}${icon('arrow')}</button><small>You’ll get feedback after each answer.</small></div>${started?'<button class="new-session" data-action="reset">Start a new session</button>':''}</section>`;
+  }
+  function selectedValue(q) { return state.responses[q.id]?.answer ?? drafts[q.id] ?? (q.type === 'single' ? null : q.type === 'sort' ? q.fragments.map(() => -1) : []); }
+  function choices(q) {
+    const response = state.responses[q.id], value = selectedValue(q);
+    return `<fieldset class="choices" ${response?'disabled':''}><legend class="sr-only">${esc(q.question)}</legend>${q.options.map((option,i) => {
+      const selected = q.type === 'multi' ? value.includes(i) : value === i;
+      const right = q.type === 'multi' ? q.answer.includes(i) : q.answer === i;
+      const status = !response ? '' : right ? 'good' : selected ? 'missed' : '';
+      const badge = !response ? '' : right ? (selected?'Your answer · Correct':'Correct answer') : selected ? 'Your answer · Review the explanation' : '';
+      return `<label class="choice ${selected?'selected':''} ${status}"><input type="${q.type==='multi'?'checkbox':'radio'}" name="answer" value="${i}" ${selected?'checked':''}><span class="choice-body">${q.codeOptions?`<code>${esc(option)}</code>`:esc(option)}${badge?`<span class="choice-status">${badge}</span>`:''}</span></label>`;
+    }).join('')}</fieldset>`;
+  }
+  function sorting(q) {
+    const value = selectedValue(q), response = state.responses[q.id];
+    return `<div class="sort-list">${q.fragments.map((fragment,i) => {
+      const right = value[i] === fragment[1];
+      return `<div class="sort-row ${response?(right?'good':'missed'):''}"><label for="fragment-${i}"><span class="fragment-number">${String(i+1).padStart(2,'0')}</span>${esc(fragment[0])}</label><select id="fragment-${i}" data-fragment="${i}" ${response?'disabled':''}><option value="-1">Choose a category…</option>${q.slots.map((slot,j) => `<option value="${j}" ${value[i]===j?'selected':''}>${esc(slot)}</option>`).join('')}</select>${response?`<div class="sort-result"><strong>${right?'Correct:':'Correct category:'} ${esc(q.slots[fragment[1]])}</strong>${esc(fragment[2])}</div>`:''}</div>`;
+    }).join('')}</div>`;
+  }
+  function testResults(fixed = false, selection = null) {
+    const tests = [
+      ['assert countYes(["yes", "Yes", "YES"]) == 3', fixed?'Test passes · actual 3 / expected 3':'Test fails · actual 1 / expected 3'],
+      ['assert countYes(["yes", "yes"]) == 2', 'Test passes · actual 2 / expected 2'],
+      ['assert countYes([]) == 0', 'Test passes · actual 0 / expected 0']
+    ];
+    return `<div class="recorded"><h4>${fixed?'Recheck the corrected code':'Recorded test results'}</h4><p class="caption">${fixed?'These results are from the corrected Python above.':'These results are from the original Python shown here.'} The code is not running in this page.</p>${selection===3?'<p>No execution result comes from asking the AI for assurance.</p>':''}${tests.map((test,i) => `<div class="test-row"><code>${esc(test[0])}</code><span class="test-result ${!fixed&&i===0?'fail':''}">${selection===i?'Your chosen test · ':''}${esc(test[1])}</span></div>`).join('')}</div>`;
+  }
+  function feedback(q) {
+    const response = state.responses[q.id];
+    if (!response) return '';
+    let extra = '';
+    if (q.type === 'single') extra = `<p class="selected-explanation">${esc(q.feedback[response.answer])}</p>`;
+    if (q.type === 'sort') {
+      const count = response.answer.filter((v,i) => v === q.fragments[i][1]).length;
+      extra = `<p class="selected-explanation">You placed ${count} of ${q.fragments.length} fragments in the matching category. The explanation for each fragment is shown above.</p>`;
+    }
+    const otherFeedback = q.feedback ? `<details class="extra-feedback"><summary>${q.type==='multi'?'See the reasoning for each choice':'Why the other choices differ'}</summary><ul>${q.feedback.map((f,i) => q.type==='single'&&i===response.answer?'':`<li><strong>${esc(q.options[i])}</strong>${esc(f)}</li>`).join('')}</ul></details>` : '';
+    const worked = q.worked ? `<ol class="worked-steps"><li><strong>2 · Diagnose</strong>The endpoint is excluded. That misses the classmate’s intended inclusive interval.</li><li><strong>3 · Verify</strong><code>assert multiplesOf11(1, 33) == [11, 22, 33]</code><br>This test fails: the actual result is <code>[11, 22]</code>.</li><li><strong>4 · Trace it back</strong>Specify “both endpoints inclusive.” The code change is <code>range(start, end + 1)</code>. Also check an empty interval and a start value that is itself a multiple of 11.</li></ol>` : '';
+    const fixed = q.fixedCode ? codeBlock(content.codes[q.fixedCode], 'Corrected implementation', q.fixedFocusLines || []) : '';
+    const comparison = q.traceResult ? `<div class="feedback-comparison"><div><span>Your prediction</span><code>${esc(q.options[response.answer])}</code></div><div><span>Actual return</span><code>${esc(q.traceResult)}</code></div></div>` : '';
+    const lineNote = q.focusLine ? `<p class="line-reference"><strong>Line ${q.focusLine} in the original code:</strong> ${esc(q.lineNote)}</p>` : '';
+    return `<section id="feedback" class="feedback" tabindex="-1" aria-labelledby="feedback-heading"><div class="feedback-label ${response.correct?'':'revisit'}">${icon(response.correct?'check':'review')}${response.correct?'Your answer is correct':q.type==='sort'?'Compare the categories':'Let’s look at the explanation'}</div><h3 id="feedback-heading">${esc(q.takeaway)}</h3>${comparison}${lineNote}${extra}<p>${esc(q.explanation)}</p>${worked}${q.recordedTests?testResults(false,response.answer):''}${fixed}${q.fixedTests?`<details class="extra-feedback" data-testid="fixed-tests"><summary>View the recorded test results</summary>${testResults(true)}</details>`:''}${q.assembled?`<details class="extra-feedback"><summary>Read the assembled prompt</summary><div class="assembled">${esc(q.assembled)}</div></details>`:''}${otherFeedback}</section>`;
+  }
+  function questionPage(q) {
+    const index = state.position, answered = !!state.responses[q.id];
+    const evidence = q.codeKeys?.length ? `<aside class="evidence" aria-label="Prompt and code">${q.spec?specification(q.spec):''}${q.codeKeys.map((k,i) => codeBlock(content.codes[k],q.codeLabels?.[i] || 'Recorded AI response',answered&&q.focusLine?[q.focusLine]:[])).join('')}${q.reminder?`<details class="reminder"><summary>Python reminder</summary><p>${esc(q.reminder)}</p></details>`:''}</aside>` : '';
+    return `<header class="activity-header"><p class="eyebrow">${esc(q.eyebrow || content.sections[q.section])}</p><h1 id="page-title" tabindex="-1">${esc(q.title)}</h1><p class="lead">${esc(q.context)}</p>${reviewSteps(q)}</header><div class="activity-grid ${evidence?'':'single-column'}">${evidence}<section class="answer-panel" aria-labelledby="question-title"><p class="question-kind">${q.type==='sort'?'Sort the fragments':q.type==='multi'?'Select all that apply':'Choose one answer'}${q.scored?'':' · Practice, not scored'}</p>${!evidence&&q.spec?specification(q.spec):''}<h2 id="question-title" class="question-title">${esc(q.question)}</h2>${q.instruction?`<p class="instruction">${esc(q.instruction)}</p>`:''}<form id="answer-form" novalidate>${q.type==='sort'?sorting(q):choices(q)}<p id="answer-error" class="error" role="alert" hidden></p>${feedback(q)}<div class="action-row"><button class="btn quiet" type="button" data-go="${index-1}">${icon('back')}Back</button>${answered?`<button class="btn primary" type="button" data-go="${index+1}">${index===content.questions.length?'Finish practice':'Continue'}${icon('arrow')}</button>`:`<button class="btn primary" type="submit">Check ${q.type==='sort'?'categories':'answer'}${icon('arrow')}</button>`}</div></form>${answered?'<p class="question-kind" style="margin:16px 0 0">Your first answer is saved. You can revisit the explanation.</p>':''}</section></div>${state.completedAt?'<button class="btn quiet" data-go="13">Return to wrap-up →</button>':''}`;
+  }
+  function closing() {
+    const total = content.questions.filter(q => q.scored).length;
+    return `<section class="closing"><p class="eyebrow">Practice complete</p><h1 id="page-title" tabindex="-1">Keep checking.</h1><p class="lead">Code that runs is not necessarily correct. You remain responsible for checking that it meets the requirements.</p><div class="closing-lessons"><h2>The three rules</h2>${ruleList()}</div><h2>Revisit an explanation</h2><ul class="review-list">${content.questions.map((q,i) => {
+      const r = state.responses[q.id];
+      return `<li><button class="review-item" data-go="${i+1}"><span class="review-icon ${r.correct?'':'revisit'}">${icon(r.correct?'check':'review')}</span><span class="review-text">${esc(q.title)}<small>${q.scored?(r.correct?'Correct on first attempt':'Worth another look'):'Unscored practice'}</small></span><span class="arrow">${icon('arrow')}</span></button></li>`;
+    }).join('')}</ul><p class="score-summary"><strong>${model.score(state,content)} of ${total}</strong> scored questions answered correctly on your first attempt. The two unscored activities are not included.</p><div class="session-tools"><h2>Save this session</h2><p>Download the answers and time spent for your pilot discussion. Results stay in this browser until you save or share the file.</p><div class="download-actions"><button class="btn primary" data-action="csv">${icon('download')}Save results (.csv)</button><button class="btn secondary" data-action="json">Save session (.json)</button></div><p id="download-status" role="status"></p><p>You can save these files before starting with the next participant.</p><button class="new-session" data-action="reset">Start a new session</button></div></section>`;
+  }
+  function render(focusId) {
+    const count = Object.keys(state.responses).length;
+    const body = state.position === 0 ? intro() : state.position > content.questions.length ? closing() : questionPage(content.questions[state.position-1]);
+    const progressText = state.position === 0 ? 'Your practice, step by step' : state.position > content.questions.length ? 'All activities complete' : `Activity ${state.position} of ${content.questions.length}`;
+    app.innerHTML = `<header class="topbar"><div class="brand"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><div><strong>Programming with AI</strong><small>Question-based practice</small></div></div><div class="top-meta"><span class="course">15-110</span><span class="dot"></span><span>Informal pilot</span></div></header><div class="layout">${sidebar()}<main id="main" class="main"><div class="progress-line"><progress value="${count}" max="${content.questions.length}" aria-label="Activities answered">${count} of ${content.questions.length}</progress><span>${progressText}</span></div><p id="storage-warning" class="storage-warning" role="status" ${storageWarning?'':'hidden'}>${esc(storageWarning)}</p>${body}<footer class="footer"><span>Read the code. Make your call. Use the feedback.</span><span>Programming with AI · Practice</span></footer></main></div>`;
+    const title = state.position > 0 && state.position <= content.questions.length ? content.questions[state.position-1].title + ' · ' : '';
+    document.title = title + 'Programming with AI';
+    if (focusId) document.getElementById(focusId)?.focus({ preventScroll: true });
+  }
+  function download(type) {
+    flush(); persist();
+    const data = type === 'csv' ? model.csv(state,content) : JSON.stringify({ ...state, score: model.score(state,content), scoredQuestions: content.questions.filter(q=>q.scored).length, timingNote: 'Approximate active time; paused while the page is hidden or the window loses focus.', questions: model.rows(state,content).map(row => ({ id:row[2], section:row[3], question:row[4], scored:row[5]==='yes', firstAnswer:row[6], correct:row[7]==='yes', answeredAt:row[8], activeAnswerSeconds:Number(row[9]), activeFeedbackSeconds:Number(row[10]) })) }, null, 2);
+    const blob = new Blob([data], { type: type === 'csv' ? 'text/csv;charset=utf-8' : 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url; link.download = 'programming-ai-' + state.sessionId.replace(/[^a-z0-9-]/gi,'') + '.' + type;
+    document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+    document.getElementById('download-status').textContent = 'Download requested. Keep the file with your pilot notes.';
+  }
+  app.addEventListener('change', event => {
+    if (state.position < 1 || state.position > content.questions.length) return;
+    const q = content.questions[state.position-1];
+    if (state.responses[q.id]) return;
+    if (event.target.matches('[data-fragment]')) {
+      const values = [...selectedValue(q)]; values[Number(event.target.dataset.fragment)] = Number(event.target.value); drafts[q.id] = values;
+    } else if (event.target.matches('input[name=answer]')) {
+      drafts[q.id] = q.type === 'multi' ? [...app.querySelectorAll('input[name=answer]:checked')].map(input => Number(input.value)) : Number(event.target.value);
+      app.querySelectorAll('.choice').forEach(label => label.classList.toggle('selected',label.querySelector('input').checked));
+    }
+    const error = document.getElementById('answer-error'); if (error) error.hidden = true;
+  });
+  app.addEventListener('submit', event => {
+    if (event.target.id !== 'answer-form') return;
+    event.preventDefault();
+    const q = content.questions[state.position-1];
+    const value = selectedValue(q);
+    if (!model.validAnswer(q, value)) {
+      const error = document.getElementById('answer-error'); error.hidden = false;
+      error.textContent = q.type === 'sort' ? 'Choose a category for every fragment before checking.' : q.type === 'multi' ? 'Select at least one choice before checking.' : 'Choose an answer before checking.';
+      const target = q.type === 'sort' ? [...app.querySelectorAll('select')].find(el => el.value === '-1') : app.querySelector('input[name=answer]'); target?.focus();
+      return;
+    }
+    flush();
+    if (!model.submit(state,q,value)) return;
+    persist(); render('feedback');
+    document.getElementById('feedback')?.scrollIntoView({ behavior:'instant', block:'nearest' });
+  });
+  app.addEventListener('click', event => {
+    const button = event.target.closest('button'); if (!button || button.disabled) return;
+    if (button.dataset.go !== undefined) { navigate(Number(button.dataset.go)); return; }
+    const action = button.dataset.action;
+    if (action === 'begin') navigate(model.reachable(state,content));
+    if (action === 'csv' || action === 'json') download(action);
+    if (action === 'reset') {
+      if (!window.confirm('Start a new session? This clears the answers saved in this browser. Save the current session first if you want to keep it.')) return;
+      state = model.create(content); drafts = {}; segmentStart = performance.now(); persist(); render('page-title'); window.scrollTo(0,0);
+    }
+  });
+  document.addEventListener('visibilitychange', () => { flush(); active = !document.hidden; persist(); });
+  window.addEventListener('blur', () => { flush(); active = false; persist(); });
+  window.addEventListener('focus', () => { segmentStart = performance.now(); active = !document.hidden; });
+  window.addEventListener('pagehide', () => { flush(); persist(); });
+  setInterval(() => { flush(); persist(); }, 15000);
+  render(); persist();
+})();
+</script>
+</body>
+</html>
